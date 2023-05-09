@@ -456,8 +456,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_sources_of_requirements">3.1. Sources of Requirements</a></li>
 <li><a href="#_major_modelling_principles">3.2. Major Modelling Principles</a></li>
-<li><a href="#_profile_views">3.3. Profile Views</a></li>
-<li><a href="#_model_resources">3.4. Model resources</a></li>
+<li><a href="#_selecting_address_components">3.3. Selecting Address Components</a></li>
+<li><a href="#_profile_views">3.4. Profile Views</a></li>
+<li><a href="#_model_resources">3.5. Model resources</a></li>
 </ul>
 </li>
 <li><a href="#_model">4. Model</a>
@@ -834,19 +835,43 @@ This Model is under test by Queensland Government and is a candidate model for A
 </div>
 </div>
 <div class="sect2">
-<h3 id="_profile_views"><a class="anchor" href="#_profile_views"></a>3.3. Profile Views</h3>
+<h3 id="_selecting_address_components"><a class="anchor" href="#_selecting_address_components"></a>3.3. Selecting Address Components</h3>
+<div class="paragraph">
+<p>TODO</p>
+</div>
+<div class="sect3">
+<h4 id="_water_addressing"><a class="anchor" href="#_water_addressing"></a>3.3.1. Water Addressing</h4>
+<div class="paragraph">
+<p>TODO</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_property_addressing"><a class="anchor" href="#_property_addressing"></a>3.3.2. Property Addressing</h4>
+<div class="paragraph">
+<p>TODO</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_geographic_names"><a class="anchor" href="#_geographic_names"></a>3.3.3. Geographic Names</h4>
+<div class="paragraph">
+<p>TODO</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_profile_views"><a class="anchor" href="#_profile_views"></a>3.4. Profile Views</h3>
 <div class="paragraph">
 <p>Addresses have multiple roles: they indicate places with names (or Features with Labels), they are things to be managed by data holders, and they have statuses, lifecycles and so on. Sometimes we are only interested in one of these aspects of an Address or one <em>profile</em> and not the total Address information held. We may also be interested only in a reduced set of properties of an Address even when others within that role are present, e.g. the current status, not all the statues an Address has ever had. Finally, different implementers of this model may want to implement different jurisdictional profiles of the entire model that, for example, mandate records for that jurisdiction&#8217;s system&#8217;s use of Addresses that would be meaningless outside that jurisdiction.</p>
 </div>
 <div class="paragraph">
-<p>All of these sorts of <em>profiles</em> of Addresses are handled in a similar way in this model: they are declared Profiles of the model that may implement additional ruls and/or requirements on data, however they must always conform to the main Address Model itself.</p>
+<p>All of these sorts of <em>profiles</em> of Addresses are handled in a similar way in this model: they are declared Profiles of the model that may implement additional rules and/or requirements on data, however they must always conform to the main Address Model itself.</p>
 </div>
 <div class="paragraph">
 <p>Profile modelling is given in <a href="#PROF">[PROF]</a> and requesting profiles from data conforming to a model is given in <a href="#CONNEGP">[CONNEGP]</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_model_resources"><a class="anchor" href="#_model_resources"></a>3.4. Model resources</h3>
+<h3 id="_model_resources"><a class="anchor" href="#_model_resources"></a>3.5. Model resources</h3>
 <div class="paragraph">
 <p>This document is this model&#8217;s "Specification" which is its authoritative, human-readable, definition document. This model also contains other resources with other roles:</p>
 </div>
@@ -2248,7 +2273,7 @@ ex:addr-1
 <p>This model uses many vocabularies to give specific values to classification properties for <code>Address</code>, <code>AddressComponent</code> and to qualify relationships within the model. This section lists those vocabularies and summarises their content but not their full content which is instead linked to.</p>
 </div>
 <div class="paragraph">
-<p>Four vocabularies expected for use with this model are defined here, within the model. Others are defined elsewhere, mainly ICSM vocabularies derived from AS4189 or the G-NAF.</p>
+<p>Four of the vocabularies expected for use with this model are defined here - within the model itself. Others are defined elsewhere, mainly ICSM vocabularies derived from AS4189 or the G-NAF.</p>
 </div>
 <div class="paragraph">
 <p>Those defined here are:</p>
@@ -2273,7 +2298,7 @@ ex:addr-1
 <p>Three of these vocabularies are derived from vocabularies (codelists) within <a href="#ISO19160-1">[ISO19160-1]</a> but all are extended for use here. The remaining vocabulary - Address Role Types - is derived from the various elements of <a href="#ISO19160-1">[ISO19160-1]</a> but not directly from one vocabulary.</p>
 </div>
 <div class="paragraph">
-<p>Those defined as ICSM vocabularies:</p>
+<p>Those defined as ICSM vocabularies are:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2495,8 +2520,23 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 <td class="tableblock halign-left valign-top" colspan="3"></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>act:waterFeatureNumber</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addition (this model)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>act:waterFeatureName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addition (this model)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>act:waterFeatureType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addition (this model)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>act:stateOrTerritory</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">addition</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addition (this model)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Use</p></td>
 </tr>
 <tr>
@@ -3451,7 +3491,7 @@ WHERE a.pid = 'ex:oxford';</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-04-18 22:36:06 UTC
+Last updated 2023-05-09 00:14:03 UTC
 </div>
 </div>
 </body>
