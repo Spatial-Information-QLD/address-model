@@ -477,16 +477,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#AnnexA">Annex A: Requirements</a>
 <ul class="sectlevel2">
-<li><a href="#_better_complex_multi_address_representation">Better complex / multi address representation</a></li>
-<li><a href="#_shared_addressable_object_address_conception">Shared addressable object / address conception</a></li>
-<li><a href="#_model_interoperability">Model interoperability</a></li>
-<li><a href="#_model_profiling_and_mapping">Model profiling and mapping</a></li>
-<li><a href="#_international_model_uptake">International model uptake</a></li>
-<li><a href="#_new_address_dimensions">New address dimensions</a></li>
-<li><a href="#_enhanced_address_life_cycle_management">Enhanced address life-cycle management</a></li>
-<li><a href="#_address_validation_at_creation_point">Address validation at creation point</a></li>
-<li><a href="#_verifiable_model_conformance">Verifiable model conformance</a></li>
-<li><a href="#_multi_lingual_and_alternate_name_addressing">Multi-lingual and alternate name addressing</a></li>
+<li><a href="#req-1">A.1 Better complex / multi address representation</a></li>
+<li><a href="#req-2">A.2 Shared addressable object / address conception</a></li>
+<li><a href="#req-3">A.3 Model interoperability</a></li>
+<li><a href="#req-4">A.4 Model profiling and mapping</a></li>
+<li><a href="#req-5">A.5 International model uptake</a></li>
+<li><a href="#req-6">A.6 New address dimensions</a></li>
+<li><a href="#req-7">A.7 Enhanced address life-cycle management</a></li>
+<li><a href="#req-8">A.8 Address validation at creation point</a></li>
+<li><a href="#req-9">A.9 Verifiable model conformance</a></li>
+<li><a href="#req-10">A.10 Multi-lingual and alternate name addressing</a></li>
 </ul>
 </li>
 <li><a href="#AnnexB">Annex B: Validators</a>
@@ -995,7 +995,7 @@ This Model is under test by Queensland Government and is a candidate model for A
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Definition</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Address class represents structured information that allows unambiguous determination of an object for the purposes of identification and location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Address class represents structured information that allows unambiguous identified of an object for the purposes of identification and location</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Is Defined By</p></td>
@@ -1003,7 +1003,7 @@ This Model is under test by Queensland Government and is a candidate model for A
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sub-class Of</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html#_class_geofeature"><code>geo:Feature</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/fl/FeatureLabel"><code>fl:FeatureLabel</code></a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
@@ -1080,7 +1080,7 @@ This Model is under test by Queensland Government and is a candidate model for A
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Definition</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An object that is unambiguously determined by an address.</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An object that is unambiguously identified by an address.</p>
 <p class="tableblock">Examples of types of AddressableObjects are a building, a dwelling or a land parcel</p></td>
 </tr>
 <tr>
@@ -1097,7 +1097,7 @@ This Model is under test by Queensland Government and is a candidate model for A
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope note</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Judgement as to what makes for a permissable AddressableObject rests with the implementer. This model&#8217;s technical requirements are only that the object is a legal <code>geo:Feature</code> object, thus implementers may make Addressable Objects of almost anything.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Judgement as to what makes for a permissible AddressableObject rests with the implementer. This model&#8217;s technical requirements are only that the object is a legal <code>geo:Feature</code> object, thus implementers may make Addressable Objects of almost anything.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Expected Properties</p></td>
@@ -1246,7 +1246,7 @@ ex:addre-2 addr:isAddressFor ex:admin-area-z .</code></pre>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope note</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">An Address Component&#8217;s type should be indicated with values from a controlled vocabulary - a code list.</p>
-<p class="tableblock">A SKOS vocabulary of Address Component Types is suplied with this ontology.</p></td>
+<p class="tableblock">A SKOS vocabulary of Address Component Types is supplied with this model.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Expected Properties</p></td>
@@ -2781,44 +2781,82 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 <p>Next follows a description per Requirement as to how this Model addresses it.</p>
 </div>
 <div class="sect2">
-<h3 id="_better_complex_multi_address_representation"><a class="anchor" href="#_better_complex_multi_address_representation"></a>Better complex / multi address representation</h3>
-
+<h3 id="req-1"><a class="anchor" href="#req-1"></a>A.1 Better complex / multi address representation</h3>
+<div class="paragraph">
+<p>The Model allows for any number of levels of sub-addressing and anchors the Addressable Objects to items in other systems (e.g. Cadastral databases) so any form of complex address scenario can be represented via a combination of Address and/or Addressable Object relations</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_shared_addressable_object_address_conception"><a class="anchor" href="#_shared_addressable_object_address_conception"></a>Shared addressable object / address conception</h3>
-
+<h3 id="req-2"><a class="anchor" href="#req-2"></a>A.2 Shared addressable object / address conception</h3>
+<div class="paragraph">
+<p>This Model inherits the Address / Addressable Object pattern from the Compound Naming Model <a href="#CNM">[CNM]</a> which it profiles.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_model_interoperability"><a class="anchor" href="#_model_interoperability"></a>Model interoperability</h3>
-
+<h3 id="req-3"><a class="anchor" href="#req-3"></a>A.3 Model interoperability</h3>
+<div class="paragraph">
+<p>The Model is implemented in the general-purpose Web Ontology Language and is thus compatible with all RDF &amp; SPARQL systems.</p>
+</div>
+<div class="paragraph">
+<p>The model profiles a number of common, general-purpose, Semantic Web models, such as GeoSPARQL (spatiality), OWL-TIME (temporality), PROV (provenance / process flow), schema.org (general-purpose description) and thus is compatible with other models that profile these too.</p>
+</div>
+<div class="paragraph">
+<p>Some of this Model’s key patterns are inherited from the stand-alone Compound Naming <a href="#CNM">[CNM]</a> and Lifecycle <a href="#LM">[LM]</a> models which other models may also inherit from leading to interoperability on those patterns.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_model_profiling_and_mapping"><a class="anchor" href="#_model_profiling_and_mapping"></a>Model profiling and mapping</h3>
-
+<h3 id="req-4"><a class="anchor" href="#req-4"></a>A.4 Model profiling and mapping</h3>
+<div class="paragraph">
+<p>The profiling mechanism this Model uses to inherit from well-known international standard models and also special-purpose models may be reused for other models to profile this model.</p>
+</div>
+<div class="paragraph">
+<p>The model is published as a Profiles Vocabulary profile with profile elements that assist with the development of profiles of this model, for example, separately-published codelists as vocabularies which may be extended or constrained.</p>
+</div>
+<div class="paragraph">
+<p>Due to this model inheriting from standard models, it may adopt mapping from them to others, for example, GeoSPARQL’s mapping to the ISO Simple Features model <a href="#ISO19125-1">[ISO19125-1]</a>.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_international_model_uptake"><a class="anchor" href="#_international_model_uptake"></a>International model uptake</h3>
-
+<h3 id="req-5"><a class="anchor" href="#req-5"></a>A.5 International model uptake</h3>
+<div class="paragraph">
+<p>This Model profiles multiple international models – both general-purpose and domain-specific – in particular it profiles <em>ISO 19160-1: Addressing</em> <a href="#ISO19160-1">[ISO19160-1]</a>.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_new_address_dimensions"><a class="anchor" href="#_new_address_dimensions"></a>New address dimensions</h3>
-
+<h3 id="req-6"><a class="anchor" href="#req-6"></a>A.6 New address dimensions</h3>
+<div class="paragraph">
+<p>This Model uses the modelling <a href="https://en.wikipedia.org/wiki/Open-world_assumption"><em>Open World Assumption</em></a> within the context of the Semantic Web, meaning that the model may be extended in any direction, as long as the extension doesn’t invalidate existing model rules.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_enhanced_address_life_cycle_management"><a class="anchor" href="#_enhanced_address_life_cycle_management"></a>Enhanced address life-cycle management</h3>
-
+<h3 id="req-7"><a class="anchor" href="#req-7"></a>A.7 Enhanced address life-cycle management</h3>
+<div class="paragraph">
+<p>This Model inherits from the Lifecycles Model <a href="#LM">[LM]</a> and allows lifecycles to be applied to any model class such as Address, Addressable Object, Address Component.</p>
+</div>
+<div class="paragraph">
+<p>The stages of the Lifecycle Model are defined by vocabularies thus any implementer may extend or constrain available stages to suite their purpose.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_address_validation_at_creation_point"><a class="anchor" href="#_address_validation_at_creation_point"></a>Address validation at creation point</h3>
-
+<h3 id="req-8"><a class="anchor" href="#req-8"></a>A.8 Address validation at creation point</h3>
+<div class="paragraph">
+<p>One resource within the set that make up this model is a canonical validator that can be used to ’validate any data claiming conformance to this Model. Additionally, further validators may be created for this model that either implementing special-purpose validators may be created, for example, for validation of partial addresses.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_verifiable_model_conformance"><a class="anchor" href="#_verifiable_model_conformance"></a>Verifiable model conformance</h3>
-
+<h3 id="req-9"><a class="anchor" href="#req-9"></a>A.9 Verifiable model conformance</h3>
+<div class="paragraph">
+<p>As per A.8, an implementor may choose to implement multiple versions of conformance by implementing multiple validators.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_multi_lingual_and_alternate_name_addressing"><a class="anchor" href="#_multi_lingual_and_alternate_name_addressing"></a>Multi-lingual and alternate name addressing</h3>
-
+<h3 id="req-10"><a class="anchor" href="#req-10"></a>A.10 Multi-lingual and alternate name addressing</h3>
+<div class="paragraph">
+<p>The Model allows for both the implementation of literal and complex objects’ annotations (names and descriptions) in language-specific model elements which may then be selected as appropriate.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, addresses are exported from this model using templates that may both select specific language versions of address elements and implement further logic such as word contractions, as needed.</p>
+</div>
 </div>
 </div>
 </div>
@@ -3443,10 +3481,10 @@ WHERE a.pid = 'ex:oxford';</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a id="CONNEGP"></a> [CONNEGP] World Wide Web Consortium, <em>Content Negotiation by Profile</em>, W3C Working Draft (20 March 2022). <a href="https://w3c.github.io/dx-connegp/connegp/" class="bare">https://w3c.github.io/dx-connegp/connegp/</a></p>
+<p><a id="CNM"></a> [CNM] Australian Government Linked Data Working Group. <em>Compound Naming Model</em>. Semantic Web data model (2023). <a href="https://linked.data.gov.au/def/cn" class="bare">https://linked.data.gov.au/def/cn</a></p>
 </li>
 <li>
-<p><a id="FLM"></a> [FLM] The State of Queensland (Department of Resources). <em>Feature Labelling Model</em>. Semantic Web data model (2023). <a href="https://linked.data.gov.au/def/flm" class="bare">https://linked.data.gov.au/def/flm</a></p>
+<p><a id="CONNEGP"></a> [CONNEGP] World Wide Web Consortium, <em>Content Negotiation by Profile</em>, W3C Working Draft (20 March 2022). <a href="https://w3c.github.io/dx-connegp/connegp/" class="bare">https://w3c.github.io/dx-connegp/connegp/</a></p>
 </li>
 <li>
 <p><a id="GEO"></a> [GEO] Open Geospatial Consortium, <em>OGC GeoSPARQL - A Geographic Query Language for RDF Data, Version 1.1</em> (2021). OGC Implementation Specification. <a href="http://www.opengis.net/doc/IS/geosparql/1.1" class="bare">http://www.opengis.net/doc/IS/geosparql/1.1</a></p>
@@ -3455,10 +3493,16 @@ WHERE a.pid = 'ex:oxford';</code></pre>
 <p><a id="ISO19101-1"></a> [ISO19101-1] International Organization for Standardization, <em>ISO 19101-1:2014 Geographic information — Reference model — Part 1: Fundamentals</em> (2014)</p>
 </li>
 <li>
+<p><a id="ISO19125-1"></a> [ISO19125-1] International Organization for Standardization, ISO 19125-1: Geographic information — Simple Feature Access - Part 1: Common Architecture (2004)</p>
+</li>
+<li>
 <p><a id="ISO19156"></a> [ISO19156] International Organization for Standardization, <em>ISO 19156: Geographic information — Observations and measurements</em> (2011)</p>
 </li>
 <li>
 <p><a id="ISO19160-1"></a> [ISO19160-1] International Organization for Standardization, <em>ISO 19160-1: Addressing Part 1: Conceptual model</em> (2015). <a href="https://www.iso.org/standard/61710.html" class="bare">https://www.iso.org/standard/61710.html</a></p>
+</li>
+<li>
+<p><a id="LM"></a> [LM] Australian Government Linked Data Working Group. <em>Lifecycle Model</em> (2023). <a href="https://linked.data.gov.au/def/lifecycle" class="bare">https://linked.data.gov.au/def/lifecycle</a></p>
 </li>
 <li>
 <p><a id="OWL"></a> [OWL] World Wide Web Consortium, <em>OWL 2 Web Ontology Language Document Overview (Second Edition)</em>, W3C Recommendation (11 December 2012). <a href="https://www.w3.org/TR/owl2-overview/" class="bare">https://www.w3.org/TR/owl2-overview/</a></p>
@@ -3491,7 +3535,7 @@ WHERE a.pid = 'ex:oxford';</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-05-09 00:14:03 UTC
+Last updated 2023-06-20 04:56:55 UTC
 </div>
 </div>
 </body>
