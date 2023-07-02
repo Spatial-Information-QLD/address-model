@@ -456,21 +456,31 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_sources_of_requirements">3.1. Sources of Requirements</a></li>
 <li><a href="#_major_modelling_principles">3.2. Major Modelling Principles</a></li>
-<li><a href="#_model_resources">3.3. Model resources</a></li>
+<li><a href="#_address_parts">3.3. Address Parts</a></li>
 </ul>
 </li>
-<li><a href="#_model">4. Model</a>
-<ul class="sectlevel2">
-<li><a href="#Classes">4.1. Classes</a></li>
-<li><a href="#Properties">4.2. Properties</a></li>
+<li><a href="#_address_part_typing">4. Address part typing</a>
+<ul class="sectlevel3">
+<li><a href="#_address_part_templating">4.1. Address part templating</a></li>
+<li><a href="#_water_addressing">4.2. Water Addressing</a></li>
+<li><a href="#_related_addresses">4.3. Related Addresses</a></li>
+<li><a href="#_lifecycles">4.4. Lifecycles</a></li>
+<li><a href="#_profile_views">4.5. Profile Views</a></li>
+<li><a href="#_model_resources">4.6. Model resources</a></li>
 </ul>
 </li>
-<li><a href="#_supporting_vocabularies">5. Supporting Vocabularies</a>
+<li><a href="#_model">5. Model</a>
 <ul class="sectlevel2">
-<li><a href="#_address_component_types">5.1. Address Component Types</a></li>
-<li><a href="#_address_lifecycle_stage_types">5.2. Address Lifecycle Stage Types</a></li>
-<li><a href="#_address_role_types">5.3. Address Role Types</a></li>
-<li><a href="#_address_status_types">5.4. Address Status Types</a></li>
+<li><a href="#Classes">5.1. Classes</a></li>
+<li><a href="#Properties">5.2. Properties</a></li>
+</ul>
+</li>
+<li><a href="#_supporting_vocabularies">6. Supporting Vocabularies</a>
+<ul class="sectlevel2">
+<li><a href="#_address_component_types">6.1. Address Component Types</a></li>
+<li><a href="#_address_lifecycle_stage_types">6.2. Address Lifecycle Stage Types</a></li>
+<li><a href="#_address_role_types">6.3. Address Role Types</a></li>
+<li><a href="#_address_status_types">6.4. Address Status Types</a></li>
 </ul>
 </li>
 <li><a href="#AnnexA">Annex A: Requirements</a>
@@ -755,13 +765,13 @@ Shorncliffe QLD
 <p>Addresses modelled according to this model do more than just name things though: they are linked to geocodes - spatial points - allowing for map-based locating and route planning, sometimes other addresses for the same spatial object, sometimes parent/child addresses for dwelling compounds and management information such as lifecycle stages.</p>
 </div>
 <div class="paragraph">
-<p>Overall, this model represents addresses, certain properties for them, including components, geocodes and the objects to which addresses are assigned in a conceptual manner similar to the international addressing standard, <a href="#ISO19160-1">ISO19160-1</a>. However, this model is expressed in Semantic Web<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> form, rather than ISO19160-1&#8217;s UML and XML, and many aspects of the conceptual range that ISO19160 covers this model does not directly cover but instead delegates to other models which it imports, such as the representation of address and address component lifecycle information. This is done so that common things that this model does are available for use elsewhere via a series of mini-models that others may use without importing this whole model.</p>
+<p>Overall, this model represents addresses, certain properties for them, including address parts, geocodes and the objects to which addresses are assigned in a conceptual manner similar to the international addressing standard, <a href="#ISO19160-1">ISO19160-1</a>. However, this model is expressed in Semantic Web<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> form, rather than ISO19160-1&#8217;s UML and XML, and many aspects of the conceptual range that ISO19160 covers this model does not directly cover but instead delegates to other models which it imports, such as the representation of address and address part lifecycle information. This is done so that common things that this model does are available for use elsewhere via a series of mini-models that others may use without importing this whole model.</p>
 </div>
 <div class="paragraph">
-<p>Additionally, this model relies on several specialised sub-models to handle specific types of address componentry, such as roads and geographical object naming. By doing this, those things many be modelled independently of addressing and roads and geographic object names datasets can be used with address data very easily.</p>
+<p>Additionally, this model relies on several specialised sub-models to handle specific types of address parts, such as roads and geographical object naming. By doing this, those things many be modelled independently of addressing and roads and geographic object names datasets can be used with address data very easily.</p>
 </div>
 <div class="paragraph">
-<p>This model makes no attempt to model the things to which addresses are assigned. In the example above, the address "72 Yundah St&#8230;&#8203;." is mentioned as being a form of name for, or assigned to, a cadastral parcel or a 'lot'. This model doesn&#8217;t know what those things are and leaves their modelling to other systems. This means that using this model alone, you cannot know what an address is for unless you implement a component to describe the type of object the address is assigned to. This decision has been made since there could be great complexity in spatial object / infrastructure modelling that isn&#8217;t really core to addressing, so that&#8217;s best left to other, likely sophisticated, models.</p>
+<p>This model makes no attempt to model the things to which addresses are assigned. In the example above, the address "72 Yundah St&#8230;&#8203;." is mentioned as being a form of name for, or assigned to, a cadastral parcel or a 'lot'. This model doesn&#8217;t know what those things are and leaves their modelling to other systems. This means that using this model alone, you cannot know what an address is for unless you implement an address part to describe the type of object the address is assigned to. This decision has been made since there could be great complexity in spatial object / infrastructure modelling that isn&#8217;t really core to addressing, so that&#8217;s best left to other, likely sophisticated, models.</p>
 </div>
 <div class="sect2">
 <h3 id="_sources_of_requirements"><a class="anchor" href="#_sources_of_requirements"></a>3.1. Sources of Requirements</h3>
@@ -783,6 +793,12 @@ Shorncliffe QLD
 <div class="olist arabic">
 <ol class="arabic">
 <li>
+<p><a href="#_model_reuse">Model Reuse</a></p>
+</li>
+<li>
+<p><a href="#_external_vocabularies">External Vocabularies</a></p>
+</li>
+<li>
 <p><a href="#_feature_feature_naming_differentiation">Feature / Feature Naming differentiation</a></p>
 </li>
 <li>
@@ -792,10 +808,16 @@ Shorncliffe QLD
 <p><a href="#_geocodes">Geocodes</a></p>
 </li>
 <li>
-<p><a href="#_road_geographical_object_names">Road &amp; Geographical Object Names</a></p>
+<p><a href="#_address_parts">Address Parts</a></p>
 </li>
 <li>
-<p><a href="#_address_component_grouping">Address component grouping</a></p>
+<p><a href="#_road_geographical_names">Road &amp; Geographical Names</a></p>
+</li>
+<li>
+<p><a href="#_address_part_typing">Address part typing</a></p>
+</li>
+<li>
+<p><a href="#_address_part_templating">Address part templating</a></p>
 </li>
 <li>
 <p><a href="#_water_addressing">Water Addressing</a></p>
@@ -814,74 +836,170 @@ Shorncliffe QLD
 <div class="paragraph">
 <p>These principles are explained in the following subsections and the first two reference the following figure.</p>
 </div>
-<div id="fig-address-spatial" class="imageblock">
-<div class="content">
-<img src="img/address-spatial.png" alt="address spatial">
+<div class="sect3">
+<h4 id="_model_reuse"><a class="anchor" href="#_model_reuse"></a>3.2.1. Model Reuse</h4>
+<div class="paragraph">
+<p>The Semantic Web contains many widely-used models and model reuse is a greatly favoured practice for Semantic Web modelling for, if models are reused, data created according to them is instantly compatible with other data. Additionally, many Semantic Web models have deep thought behind them that no single modelling initiative could hope to match easily.</p>
 </div>
-<div class="title">Figure 2. Address / Addressable Object and Feature / Geometry differentiation overview</div>
+<div class="paragraph">
+<p>The well-known Semantic Web models that this model inherits from are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Web Ontology Language <a href="#OWL">OWL</a>: a widely-used set theory-based general-purpose model that uses the <a href="#RDF">RDF</a> data structure</p>
+</li>
+<li>
+<p>schema.org <a href="#SDO">SDO</a>: a general-purpose model of classes and properties used by many website publishers to present structured data to search engines</p>
+</li>
+<li>
+<p>GeoSPARQL <a href="#GEO">GEO</a>: the Open Geospatial Consortium&#8217;s<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup> ontology for basic features and geometries modelling</p>
+</li>
+<li>
+<p>Simple Knowledge Organization System <a href="#SKOS">SKOS</a>: a simple OWL model for organizing taxonomies of concepts</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Some aspects of addressing that were originally modelled within this model at its first release in 2021 have been discovered to be generic in nature but yet not already modelled in a Semantic Web ontology appropriate for use here. For those aspects of addressing, a series of mini-models have been created to allow the generic parts to be published independently of addressing, allowing for independent and hopefully greater reuse. The main mini-models factored out of this model are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Compound Naming Model <a href="#CNM">CNM</a>: modelling of names objects, parts of names, and the things names are assigned to</p>
+</li>
+<li>
+<p>Lifecycles Model <a href="#LM">LM</a>: modelling of lifecycles for anything - whole addresses, parts of addresses etc.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
-<h4 id="_feature_feature_naming_differentiation"><a class="anchor" href="#_feature_feature_naming_differentiation"></a>3.2.1. Feature / Feature Naming differentiation</h4>
+<h4 id="_external_vocabularies"><a class="anchor" href="#_external_vocabularies"></a>3.2.2. External Vocabularies</h4>
 <div class="paragraph">
-<p>This model details the elements of an <em>address</em> but not details of the spatial objects that addresses are assigned to. The general conceptual split of address/spatial object follows the Address/AddressableObject split in ISO19160-1 <a href="#ISO19160-1">ISO19160-1</a>. Addresses are seen as a form of complex, multi-part, label - Feature Label - for a spatial Feature.</p>
+<p>Some elements of addresses must be subclassified by, or in some other way associated with, terms from vocabularies. The most prominent example is the expression of the type of part of an address: is it a <em>street number</em>, a <em>flat type</em> or a <em>postcode</em>?</p>
 </div>
 <div class="paragraph">
-<p>This allows for the representation, and ultimately the management, of labels - text, numbers, identifiers, references - separately to the management of spatial objects.</p>
+<p>Where such vocabularies are used, they are not directly published <em>within</em> this model but externally and this model is expected to be used with them. In this way, vocabularies may be extended without extending this model and different users may implement their own vocabularies to suite their business needs, for example, perhaps not all model users allow all address part types Queensland does, such as <em>water feature number</em> so, they should use this model with a vocabulary that excludes that term.</p>
 </div>
 <div class="paragraph">
-<p>This Feature / Feature Naming separation applies to Place Names, Roads and Administrative Areas as well as Addresses and this expression of Feature / Feature Naming separation for addressing is a formal profile of the more general <em>Compound Naming Model</em> <a href="#CNM">CNM</a>. There are other profiles for those other domains. The FLM, this model and the other FLM profiles are all pat of Queensland Spatial Information&#8217;s <a href="https://spatial-information-qld.github.io/supermodel/supermodel.html"><em>Supermodel</em></a> which is an enterprise data model for multi-model data integration.</p>
+<p>See the <a href="#_supporting_vocabularies">Supporting Vocabularies</a> section for mode information.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_feature_geometry_differentiation"><a class="anchor" href="#_feature_geometry_differentiation"></a>3.2.2. Feature / Geometry differentiation</h4>
+<h4 id="_feature_feature_naming_differentiation"><a class="anchor" href="#_feature_feature_naming_differentiation"></a>3.2.3. Feature / Feature Naming differentiation</h4>
 <div class="paragraph">
-<p>(Geo)spatial objects referenced by this model are not geometries but conceptual spatial objects that have as an expression of their spatial projection one or more geometries. This conceptual object - Feature - and spatial expression - Geometry - split is based on fundamental spatial modelling in standards such as <a href="#ISO19101-1">ISO19101-1</a> and their expression in the Semantic Web spatial standard <a href="#GEO">GEO</a>.</p>
+<p>This model details the elements of an <em>address</em> but not details of the spatial objects that addresses are assigned to. The general conceptual split of address/spatial object follows the Address/AddressableObject split in ISO19160-1 <a href="#ISO19160-1">ISO19160-1</a>. Addresses are seen as a form of complex, multi-part, name for a spatial Feature.</p>
 </div>
 <div class="paragraph">
-<p>This Feature / Geometry distinction allows individual spatial objects to have multiple Geometries: different resolutions, in different coordinate systems and even sets of Geometries that have different roles or that show variation over time.</p>
+<p>This allows for the representation, and ultimately the management, of names - text, numbers, identifiers, references - separately to the management of spatial objects.</p>
+</div>
+<div class="paragraph">
+<p>This Feature / Feature Naming separation applies to Geographical objects, Roads and Administrative Areas as well as Addresses and the first two of those three objects have models similar to this one for their names, <a href="#GN">GN</a> &amp; <a href="#ROADS">ROADS</a>.</p>
+</div>
+<div class="paragraph">
+<p>Some elements of this Feature / Feature Naming pattern, used by this and the two models mentioned above, are captured in the general-purpose <em>Compound Naming Model</em> <a href="#CNM">CNM</a> which they all inherit from.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_geocodes"><a class="anchor" href="#_geocodes"></a>3.2.3. Geocodes</h4>
+<h4 id="_feature_geometry_differentiation"><a class="anchor" href="#_feature_geometry_differentiation"></a>3.2.4. Feature / Geometry differentiation</h4>
 <div class="paragraph">
-<p>Geocodes are point geometries associated with an address that can be used by mapping applications to locate the address, or part of an addressable object, on a map.</p>
+<p>(Geo)spatial objects referenced by this model are not geometries but conceptual spatial objects that may have as an expression of their spatial projection one or more geometries. This conceptual object / spatial expression differentiation, which we refer to as a Feature / Geometry split, is based on fundamental spatial modelling in standards such as <a href="#ISO19101-1">ISO19101-1</a> and their expression in the Semantic Web spatial standard <a href="#GEO">GEO</a>.</p>
 </div>
 <div class="paragraph">
-<p>Since geocodes are directly related to an Address and are only indirectly related to an Addressable Object, in this model they are modelled as a specialised form of Features with a Geometry used to indicate the point location. The Address relates to the Geocode in a similar way to an Address relating to an Addressable Object however the Address isn&#8217;t the address <em>for</em> the Addressable Object but rather the Geocode is another kind of object associated with the Address with a <em>role</em> indicated, e.g. a particular Geocode might indicate the "property centroid", or perhaps it&#8217;s the "deliveries point" of a large building address.</p>
+<p>This Feature / Geometry split allows individual spatial objects to have multiple Geometries: different resolutions, in different coordinate systems and even sets of Geometries that have different roles or that show variation over time.</p>
+</div>
+<div class="paragraph">
+<p>While this model doesn&#8217;t model spatial aspects of the object to which addresses are assigned - see the section above - this Feature / Geometry split and expressions of geometry are modelled for geocodes - see next section.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_road_geographical_object_names"><a class="anchor" href="#_road_geographical_object_names"></a>3.2.4. Road &amp; Geographical Object Names</h4>
+<h4 id="_geocodes"><a class="anchor" href="#_geocodes"></a>3.2.5. Geocodes</h4>
+<div class="paragraph">
+<p>Geocodes are spatial objects - Features - with point geometries that addresses may be associated with so that they can be used by mapping applications to locate the address, or part of an addressable object, on a map or on the earth.</p>
+</div>
+<div class="paragraph">
+<p>Geocodes may be only indirectly related to an Addressable Object: while they may be calculated from them, for example they could be the centroid of a lot, they may also not be, for example they could be a GPS-marked point indicating a property entrance point that is on or close to the Addressable Object but has been determined independently of its details.</p>
+</div>
+<div class="paragraph">
+<p>For this reason, Geocodes are related to Addresses only in this model, not Addressable Objects, and any Geocode/Addressable Object relations are out-of-scope here.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_address_parts"><a class="anchor" href="#_address_parts"></a>3.3. Address Parts</h3>
+<div class="paragraph">
+<p>Addresses are complex things: they are all made of multiple parts with different roles, types ordering and so on. To handle this, this model has a generic notion of a part which may be a simple thing, e.g. a postcode or a street number, but it may also be a complex thing, e.g. a road name that includes a "given" name for the road as well as some type indication.</p>
+</div>
+<div class="paragraph">
+<p>This model inherits from the Compound Naming Model <a href="#CNM">CNM</a> which allows for Compound Names, such as Addresses, to link to parts which are also Compound Names which then link to other Compound Names. In this way, Addresses may be "built up" from compound names for a series of parts, such as road names, locality names and so on.</p>
+</div>
+<div class="sect3">
+<h4 id="_road_geographical_names"><a class="anchor" href="#_road_geographical_names"></a>3.3.1. Road &amp; Geographical Names</h4>
+<div class="paragraph">
+<p>This model can be used to model all the parts of a street names - the 'given' part e.g. "Smith", a type indicator such as "Street" and perhaps a suffix, such as "South" - or it can be used to just indicate that a particular street or road is a part of an address and the name for that road is to be found in an independent road name object.</p>
+</div>
+<div class="paragraph">
+<p>This second form - delegation of name - is allowed to facilitate point-of-truth road names datasets which both provide names for roads in isolation and are also used by address datasets.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, names for geographical objects, such as mountains, lakes, certain kinds of locality etc. may also be held independently of addressing data and just referred to as a complex object part of an address.</p>
+</div>
+<div class="paragraph">
+<p>A model of roads - both naming and some physical presentation of them - has been created in parallel to this model, as has a model of Geographical Names which is a replacement for the various Placenames models found in ANZ, such as the <a href="https://linked.data.gov.au/def/placenames">FSDF Placenames Ontology</a>. these models can be used independently as well as within this model. Their persistent web addresses are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://linked.data.gov.au/def/roads" class="bare">https://linked.data.gov.au/def/roads</a> - Roads Model</p>
+</li>
+<li>
+<p><a href="https://linked.data.gov.au/def/gn" class="bare">https://linked.data.gov.au/def/gn</a> - Geographical Names Model</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_address_part_typing"><a class="anchor" href="#_address_part_typing"></a>4. Address part typing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are various given name parts of addresses which have previously been shoved into inappropriate data fields legacy address models and systems. For example, some models have contained <em>building</em> but not <em>property</em> names, so both types have been combined into the field for the former.</p>
+</div>
+<div class="paragraph">
+<p>In this model, all address parts are just parts with a specialised type indicated with a reference to a concept within a vocabulary such as the Address Parts vocabulary (see <a href="#_supporting_vocabularies">Supporting Vocabularies</a>). Implementations <em>MUST</em> allow for this type of "soft typing" (where a data object&#8217;s type is selectable from an external list) so that no field limitations such as the above occur.</p>
+</div>
+<div class="paragraph">
+<p>Implementers can limit the part type vocabulary of course and will have to handel all the types they allow in the vocabulary, but implementers should not "make do" with inappropriate field (part type) reuse.</p>
+</div>
+<div class="sect3">
+<h4 id="_address_part_templating"><a class="anchor" href="#_address_part_templating"></a>4.1. Address part templating</h4>
 <div class="paragraph">
 <p>TODO</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_address_component_grouping"><a class="anchor" href="#_address_component_grouping"></a>3.2.5. Address component grouping</h4>
+<h4 id="_water_addressing"><a class="anchor" href="#_water_addressing"></a>4.2. Water Addressing</h4>
 <div class="paragraph">
 <p>TODO</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_water_addressing"><a class="anchor" href="#_water_addressing"></a>3.2.6. Water Addressing</h4>
+<h4 id="_related_addresses"><a class="anchor" href="#_related_addresses"></a>4.3. Related Addresses</h4>
 <div class="paragraph">
 <p>TODO</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_related_addresses"><a class="anchor" href="#_related_addresses"></a>3.2.7. Related Addresses</h4>
+<h4 id="_lifecycles"><a class="anchor" href="#_lifecycles"></a>4.4. Lifecycles</h4>
 <div class="paragraph">
 <p>TODO</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_lifecycles"><a class="anchor" href="#_lifecycles"></a>3.2.8. Lifecycles</h4>
-<div class="paragraph">
-<p>TODO</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_profile_views"><a class="anchor" href="#_profile_views"></a>3.2.9. Profile Views</h4>
+<h4 id="_profile_views"><a class="anchor" href="#_profile_views"></a>4.5. Profile Views</h4>
 <div class="paragraph">
 <p>Addresses have multiple roles: they indicate places with names (or Features with Labels), they are things to be managed by data holders, and they have statuses, lifecycles and so on. Sometimes we are only interested in one of these aspects of an Address or one <em>profile</em> and not the total Address information held. We may also be interested only in a reduced set of properties of an Address even when others within that role are present, e.g. the current status, not all the statues an Address has ever had. Finally, different implementers of this model may want to implement different jurisdictional profiles of the entire model that, for example, mandate records for that jurisdiction&#8217;s system&#8217;s use of Addresses that would be meaningless outside that jurisdiction.</p>
 </div>
@@ -892,9 +1010,8 @@ Shorncliffe QLD
 <p>Profile modelling is given in <a href="#PROF">PROF</a> and requesting profiles from data conforming to a model is given in <a href="#CONNEGP">CONNEGP</a>.</p>
 </div>
 </div>
-</div>
 <div class="sect2">
-<h3 id="_model_resources"><a class="anchor" href="#_model_resources"></a>3.3. Model resources</h3>
+<h3 id="_model_resources"><a class="anchor" href="#_model_resources"></a>4.6. Model resources</h3>
 <div class="paragraph">
 <p>This document is this model&#8217;s "Specification" which is its authoritative, human-readable, definition document. This model also contains other resources with other roles:</p>
 </div>
@@ -950,7 +1067,7 @@ Shorncliffe QLD
 </div>
 </div>
 <div class="sect1">
-<h2 id="_model"><a class="anchor" href="#_model"></a>4. Model</h2>
+<h2 id="_model"><a class="anchor" href="#_model"></a>5. Model</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This model is composed of Web Ontology Language (OWL) <a href="#OWL">OWL</a> Classes and Properties. While some of the properties are restricted in their use to various classes, the Classes and Properties are actually defined individually and both are "first class model citizens", with golbal identity, that can be used in isolation as well as together. This is in contrast to Unified Modelling Language (UML) <em>Class Diagrams</em> which treat Properties as sub-parts of particular classes.</p>
@@ -962,16 +1079,16 @@ Shorncliffe QLD
 <div class="content">
 <img src="img/overview.png" alt="overview">
 </div>
-<div class="title">Figure 3. An informal Model Overview diagram showing the major elements of this model</div>
+<div class="title">Figure 2. An informal Model Overview diagram showing the major elements of this model</div>
 </div>
 <div id="fig-upper-classes" class="imageblock">
 <div class="content">
 <img src="img/upper-classes.png" alt="upper classes">
 </div>
-<div class="title">Figure 4. Mapping of the main model classes to common Semantic Web classes</div>
+<div class="title">Figure 3. Mapping of the main model classes to common Semantic Web classes</div>
 </div>
 <div class="sect2">
-<h3 id="Classes"><a class="anchor" href="#Classes"></a>4.1. Classes</h3>
+<h3 id="Classes"><a class="anchor" href="#Classes"></a>5.1. Classes</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -995,7 +1112,7 @@ Shorncliffe QLD
 </ul>
 </div>
 <div class="sect3">
-<h4 id="Address"><a class="anchor" href="#Address"></a>4.1.1. Address</h4>
+<h4 id="Address"><a class="anchor" href="#Address"></a>5.1.1. Address</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1080,7 +1197,7 @@ Shorncliffe QLD
 </table>
 </div>
 <div class="sect3">
-<h4 id="AddressableObject"><a class="anchor" href="#AddressableObject"></a>4.1.2. Addressable Object</h4>
+<h4 id="AddressableObject"><a class="anchor" href="#AddressableObject"></a>5.1.2. Addressable Object</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1150,7 +1267,7 @@ ex:addre-2 addr:isAddressFor ex:admin-area-z .</code></pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="AddressComponent"><a class="anchor" href="#AddressComponent"></a>4.1.3. Address Component</h4>
+<h4 id="AddressComponent"><a class="anchor" href="#AddressComponent"></a>5.1.3. Address Component</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1229,7 +1346,7 @@ ex:addre-2 addr:isAddressFor ex:admin-area-z .</code></pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="AddressComponentType"><a class="anchor" href="#AddressComponentType"></a>4.1.4. Address Component Type</h4>
+<h4 id="AddressComponentType"><a class="anchor" href="#AddressComponentType"></a>5.1.4. Address Component Type</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1307,12 +1424,12 @@ ex:addre-2 addr:isAddressFor ex:admin-area-z .</code></pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="AddressLifecycleStage"><a class="anchor" href="#AddressLifecycleStage"></a>4.1.5. Address Lifecycle Stage</h4>
+<h4 id="AddressLifecycleStage"><a class="anchor" href="#AddressLifecycleStage"></a>5.1.5. Address Lifecycle Stage</h4>
 <div id="fig-lifecycle-stages" class="imageblock">
 <div class="content">
 <img src="img/lifecycle-stages.png" alt="lifecycle stages">
 </div>
-<div class="title">Figure 5. An example Address, <code>QLD186906</code>, with Lifecycle Stages</div>
+<div class="title">Figure 4. An example Address, <code>QLD186906</code>, with Lifecycle Stages</div>
 </div>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
@@ -1396,7 +1513,7 @@ addrls:proposed
 </table>
 </div>
 <div class="sect3">
-<h4 id="AddressLifecycleStageType"><a class="anchor" href="#AddressLifecycleStageType"></a>4.1.6. Address Lifecycle Stage Type</h4>
+<h4 id="AddressLifecycleStageType"><a class="anchor" href="#AddressLifecycleStageType"></a>5.1.6. Address Lifecycle Stage Type</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1463,7 +1580,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="AddressRole"><a class="anchor" href="#AddressRole"></a>4.1.7. Address Role</h4>
+<h4 id="AddressRole"><a class="anchor" href="#AddressRole"></a>5.1.7. Address Role</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1526,7 +1643,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="Geocode"><a class="anchor" href="#Geocode"></a>4.1.8. Geocode</h4>
+<h4 id="Geocode"><a class="anchor" href="#Geocode"></a>5.1.8. Geocode</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1593,7 +1710,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="GeocodeType"><a class="anchor" href="#GeocodeType"></a>4.1.9. Geocode Type</h4>
+<h4 id="GeocodeType"><a class="anchor" href="#GeocodeType"></a>5.1.9. Geocode Type</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1656,7 +1773,7 @@ ex:addr-1
 </div>
 </div>
 <div class="sect2">
-<h3 id="Properties"><a class="anchor" href="#Properties"></a>4.2. Properties</h3>
+<h3 id="Properties"><a class="anchor" href="#Properties"></a>5.2. Properties</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1686,7 +1803,7 @@ ex:addr-1
 </ul>
 </div>
 <div class="sect3">
-<h4 id="isAddressFor"><a class="anchor" href="#isAddressFor"></a>4.2.1. is address for</h4>
+<h4 id="isAddressFor"><a class="anchor" href="#isAddressFor"></a>5.2.1. is address for</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1752,7 +1869,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasAddress"><a class="anchor" href="#hasAddress"></a>4.2.2. has address</h4>
+<h4 id="hasAddress"><a class="anchor" href="#hasAddress"></a>5.2.2. has address</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1818,7 +1935,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasAddressComponent"><a class="anchor" href="#hasAddressComponent"></a>4.2.3. has address component</h4>
+<h4 id="hasAddressComponent"><a class="anchor" href="#hasAddressComponent"></a>5.2.3. has address component</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1878,7 +1995,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasAddressComponentType"><a class="anchor" href="#hasAddressComponentType"></a>4.2.4. has address component type</h4>
+<h4 id="hasAddressComponentType"><a class="anchor" href="#hasAddressComponentType"></a>5.2.4. has address component type</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1939,7 +2056,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasAddressRole"><a class="anchor" href="#hasAddressRole"></a>4.2.5. has address role</h4>
+<h4 id="hasAddressRole"><a class="anchor" href="#hasAddressRole"></a>5.2.5. has address role</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1998,7 +2115,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasGeocode"><a class="anchor" href="#hasGeocode"></a>4.2.6. has geocode</h4>
+<h4 id="hasGeocode"><a class="anchor" href="#hasGeocode"></a>5.2.6. has geocode</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2063,7 +2180,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasLifecycleStage"><a class="anchor" href="#hasLifecycleStage"></a>4.2.7. has lifecycle stage</h4>
+<h4 id="hasLifecycleStage"><a class="anchor" href="#hasLifecycleStage"></a>5.2.7. has lifecycle stage</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2135,7 +2252,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasValue"><a class="anchor" href="#hasValue"></a>4.2.8. has value</h4>
+<h4 id="hasValue"><a class="anchor" href="#hasValue"></a>5.2.8. has value</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2208,7 +2325,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasValueText"><a class="anchor" href="#hasValueText"></a>4.2.9. has value text</h4>
+<h4 id="hasValueText"><a class="anchor" href="#hasValueText"></a>5.2.9. has value text</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2290,7 +2407,7 @@ ex:addr-1
 </div>
 </div>
 <div class="sect1">
-<h2 id="_supporting_vocabularies"><a class="anchor" href="#_supporting_vocabularies"></a>5. Supporting Vocabularies</h2>
+<h2 id="_supporting_vocabularies"><a class="anchor" href="#_supporting_vocabularies"></a>6. Supporting Vocabularies</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This model uses many vocabularies to give specific values to classification properties for <code>Address</code>, <code>AddressComponent</code> and to qualify relationships within the model. This section lists those vocabularies and summarises their content but not their full content which is instead linked to.</p>
@@ -2364,7 +2481,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 </table>
 </div>
 <div class="sect2">
-<h3 id="_address_component_types"><a class="anchor" href="#_address_component_types"></a>5.1. Address Component Types</h3>
+<h3 id="_address_component_types"><a class="anchor" href="#_address_component_types"></a>6.1. Address Component Types</h3>
 <div class="paragraph">
 <p>This vocabulary is an extended version of <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressComponentType</code> vocabulary. The original 8 concepts from the standard are included however only one of them - <code>postcode</code> - is suggested for use within this model. An additional 19 concepts are taken from address elements in the G-NAF, such as <code>numberFirstSuffix</code>. A further 4 concepts have also been added during the design of this model to cater for newly understood future ANZ addressing needs, such as <code>placeName</code> and <code>indigenousPlaceName</code>.</p>
 </div>
@@ -2581,7 +2698,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 </table>
 </div>
 <div class="sect2">
-<h3 id="_address_lifecycle_stage_types"><a class="anchor" href="#_address_lifecycle_stage_types"></a>5.2. Address Lifecycle Stage Types</h3>
+<h3 id="_address_lifecycle_stage_types"><a class="anchor" href="#_address_lifecycle_stage_types"></a>6.2. Address Lifecycle Stage Types</h3>
 <div class="paragraph">
 <p>This vocabulary is currently as per <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressLifecycleStage</code> vocabulary, however it is expected that this vocabulary will be extended early in its use in Australia/NZ as it is know that jurisdictions within ANZ use other statuses</p>
 </div>
@@ -2647,7 +2764,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 </table>
 </div>
 <div class="sect2">
-<h3 id="_address_role_types"><a class="anchor" href="#_address_role_types"></a>5.3. Address Role Types</h3>
+<h3 id="_address_role_types"><a class="anchor" href="#_address_role_types"></a>6.3. Address Role Types</h3>
 <div class="paragraph">
 <p>This vocabulary is inspired by <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressPosition</code> and <code>AddressPositionType</code> classes and the often repeated need in ANZ to assign purposes to Addresses. All elements are original in this model.</p>
 </div>
@@ -2708,7 +2825,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 </table>
 </div>
 <div class="sect2">
-<h3 id="_address_status_types"><a class="anchor" href="#_address_status_types"></a>5.4. Address Status Types</h3>
+<h3 id="_address_status_types"><a class="anchor" href="#_address_status_types"></a>6.4. Address Status Types</h3>
 <div class="paragraph">
 <p>This vocabulary is an extended version of <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressStatus</code> vocabulary.</p>
 </div>
@@ -3515,6 +3632,10 @@ WHERE a.pid = 'ex:oxford';</code></pre>
 <dd>
 <p>Open Geospatial Consortium, <em>OGC GeoSPARQL - A Geographic Query Language for RDF Data, Version 1.1</em> (2021). OGC Implementation Specification. <a href="http://www.opengis.net/doc/IS/geosparql/1.1" class="bare">http://www.opengis.net/doc/IS/geosparql/1.1</a></p>
 </dd>
+<dt class="hdlist1"><a id="GN"></a> GN</dt>
+<dd>
+<p>Queensland Spatial Information. <em>Geographical Names Model</em> (2023). <a href="https://linked.data.gov.au/def/gn" class="bare">https://linked.data.gov.au/def/gn</a></p>
+</dd>
 <dt class="hdlist1"><a id="ISO19101-1"></a> ISO19101-1</dt>
 <dd>
 <p>International Organization for Standardization, <em>ISO 19101-1:2014 Geographic information — Reference model — Part 1: Fundamentals</em> (2014)</p>
@@ -3585,10 +3706,13 @@ WHERE a.pid = 'ex:oxford';</code></pre>
 <div class="footnote" id="_footnotedef_1">
 <a href="#_footnoteref_1">1</a>. See <a href="https://en.wikipedia.org/wiki/Semantic_Web" class="bare">https://en.wikipedia.org/wiki/Semantic_Web</a> for a general description of the Semantic Web
 </div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. The OGC: <a href="https://www.ogc.org/" class="bare">https://www.ogc.org/</a>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-07-02 13:34:44 UTC
+Last updated 2023-07-02 15:01:49 UTC
 </div>
 </div>
 </body>
