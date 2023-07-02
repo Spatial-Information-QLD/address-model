@@ -456,9 +456,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_sources_of_requirements">3.1. Sources of Requirements</a></li>
 <li><a href="#_major_modelling_principles">3.2. Major Modelling Principles</a></li>
-<li><a href="#_selecting_address_components">3.3. Selecting Address Components</a></li>
-<li><a href="#_profile_views">3.4. Profile Views</a></li>
-<li><a href="#_model_resources">3.5. Model resources</a></li>
+<li><a href="#_model_resources">3.3. Model resources</a></li>
 </ul>
 </li>
 <li><a href="#_model">4. Model</a>
@@ -527,11 +525,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Preferred Label</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ANZ National Address Model - Candidate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Address Model</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Definition</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A Semantic Web data model of address information. It caters specifically for Australian &amp; New Zealand&#8217;s address modelling needs.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Semantic Web data model of address information that caters specifically for Australian &amp; New Zealand&#8217;s address modelling needs</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Created</strong></p></td>
@@ -539,11 +537,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Modified</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2023-03-23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2023-06-30</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Issued</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0000-00-00 - <em>not formally issued yet</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2023-07-03 - <em>not formally issued yet</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Creator</strong></p></td>
@@ -555,15 +553,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Provenance</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This model was made for Queensland Spatial Information, a unit of the Queensland Department of Resources, to assist with their future address database design. It is informed by the ICSM&#8217;s Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021 and is based primarily on the ISO19160-1 Addressing Part 1: Conceptual model with additional elements from a small set of well-regarded Semantic Web models such as GeoSPARQL and SKOS. It is also informed by the relational database model used for the G-NAF, Australia&#8217;s Geocoded National Address File, and CSIRO work in 2018 to characterise the GNAF in Semantic Web form, the ontology for which is online at <a href="https://linked.data.gov.au/def/gnaf" class="bare">https://linked.data.gov.au/def/gnaf</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This model was originally developed between 2021 and 2023 for Queensland Spatial Information, a unit of the Queensland Department of Resources, to assist with their future address database design. It is informed by the ICSM&#8217;s Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021, which listed 'pain points' with current ANZ address models and considered future address modelling needs. This model tries to address the 10 main Requirements established by the Strategy. This model is also informed by both the relational database model used for the G-NAF, Australia&#8217;s Geocoded National Address File, and CSIRO work in 2018 to characterise the GNAF in Semantic Web form, the ontology for which is online at <a href="https://linked.data.gov.au/def/gnaf" class="bare">https://linked.data.gov.au/def/gnaf</a>, as well as the ISO&#8217;s ISO19160-1 Addressing Part 1: Conceptual model. In 2023, several parts of this model covering general modelling issues, such as lifecycle representation, were extracted out into a series of mini-models to allow other models to reuse them without importing this model. As a result, the 2023 version fo this model appears to be greatly reduced in complexity and coverage but coverage is unchanged with those mini-models are also used.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Beta version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">First stable version</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Version</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addr:0.0.2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addr:1.0.0</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code Repository</strong></p></td>
@@ -603,13 +601,16 @@ This Model is under test by Queensland Government and is a candidate model for A
 </table>
 </div>
 <div class="paragraph">
-<p>A Semantic Web data model of address information. It caters specifically for Australian &amp; New Zealand&#8217;s address modelling needs. It was made in 2022 for Queensland Spatial Information, a unit of the Queensland Department of Resources, to assist with their future address database design. It is informed by the ICSM&#8217;s Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021 and is based primarily on the ISO19160-1 <em>Addressing Part 1: Conceptual model</em> <a href="#ISO19160-1">[ISO19160-1]</a> with additional elements from a small set of well-regarded Semantic Web models such as GeoSPARQL <a href="#GEO">[GEO]</a> and SKOS <a href="#SKOS">[SKOS]</a>. It is also informed by the relational database model used for the <a href="https://data.gov.au/data/dataset/d4631917-14d7-4c49-830c-555ad63adf9d">G-NAF, Australia&#8217;s Geocoded National Address File</a>, and CSIRO work in 2018 to characterise the GNAF in Semantic Web form, the ontology for which is online at <a href="https://linked.data.gov.au/def/gnaf" class="bare">https://linked.data.gov.au/def/gnaf</a>.</p>
+<p>A Semantic Web data model of address information that caters specifically for Australian &amp; New Zealand&#8217;s address modelling needs.</p>
+</div>
+<div class="paragraph">
+<p>This model was originally developed between 2021 and 2023 for Queensland Spatial Information, a unit of the Queensland Department of Resources, to assist with their future address database design. It is informed by the ICSM&#8217;s Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021, which listed 'pain points' with current ANZ address models and considered future address modelling needs. This model tries to address the 10 main Requirements established by the Strategy. This model is also informed by both the relational database model used for the G-NAF, Australia&#8217;s Geocoded National Address File, and CSIRO work in 2018 to characterise the GNAF in Semantic Web form, the ontology for which is online at <a href="https://linked.data.gov.au/def/gnaf" class="bare">https://linked.data.gov.au/def/gnaf</a>, as well as the ISO&#8217;s ISO19160-1 Addressing Part 1: Conceptual model. In 2023, several parts of this model covering general modelling issues, such as lifecycle representation, were extracted out into a series of mini-models to allow other models to reuse them without importing this model. As a result, the 2023 version fo this model appears to be greatly reduced in complexity and coverage but coverage is unchanged with those mini-models are also used.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_namespaces"><a class="anchor" href="#_namespaces"></a>2.2. Namespaces</h3>
 <div class="paragraph">
-<p>This model is built on a small set of well-regarded Semantic Web models which use a variatey of namespaces. Prefixes for this namespaces, used throughout this document, are listed below.</p>
+<p>This model is built on a small set of well-regarded Semantic Web models which use a variety of namespaces. Additionally, this model is expected to be used with a series of mini-models which were created alongside it and they also used namespaces. Prefixes for these namespaces, used throughout this document, are listed below.</p>
 </div>
 <table class="tableblock frame-none grid-none stripes-even stretch">
 <colgroup>
@@ -628,32 +629,7 @@ This Model is under test by Queensland Government and is a candidate model for A
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>addr</strong></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><a href="https://linked.data.gov.au/def/addr/" class="bare">https://linked.data.gov.au/def/addr/</a></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Placeholder namespace for this model</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>role</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/addr/AddressRoleType/" class="bare">https://linked.data.gov.au/def/addr/AddressRoleType/</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Placeholder for the Address Roles Vocabulary</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>asgsed3</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/dataset/asgsed3" class="bare">https://linked.data.gov.au/dataset/asgsed3</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Australian Statistical Geographies Standard Dataset, Release 3</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcterms</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://purl.org/dc/terms/" class="bare">http://purl.org/dc/terms/</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Dublin Core Terms vocabulary namespace</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ex</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://example.com/" class="bare">http://example.com/</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Generic examples namespace</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.opengis.net/ont/geosparql#" class="bare">http://www.opengis.net/ont/geosparql#</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OGC GeoSPARQL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This model</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>act</code></p></td>
@@ -663,7 +639,7 @@ This Model is under test by Queensland Government and is a candidate model for A
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>actiso</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressComponentType/" class="bare">http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressComponentType/</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ISO19160-1">[ISO19160-1]</a>'s <code>AddressComponentType</code> vocabulary namespace</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressComponentType</code> vocabulary namespace</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>als</code></p></td>
@@ -671,19 +647,34 @@ This Model is under test by Queensland Government and is a candidate model for A
 <td class="tableblock halign-left valign-top"><p class="tableblock">This model&#8217;s <code>AddressLifecycleStageType</code> vocabulary namespace</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>alsiso</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressLifecycleStageType/" class="bare">http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressLifecycleStageType/</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ISO19160-1">[ISO19160-1]</a>'s <code>AddressLifecycleStageType</code> vocabulary namespace</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ast</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/addr/AddressStatusType/" class="bare">https://linked.data.gov.au/def/addr/AddressStatusType/</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This model&#8217;s <code>AddressStatusType</code> vocabulary namespace</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>astiso</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressStatusType/" class="bare">http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressStatusType/</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ISO19160-1">[ISO19160-1]</a>'s <code>AddressStatusType</code> vocabulary namespace</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>asgsed3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/dataset/asgsed3" class="bare">https://linked.data.gov.au/dataset/asgsed3</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Australian Statistical Geographies Standard Dataset, Release 3, in Linked Data form</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ex</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://example.com/" class="bare">http://example.com/</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generic examples namespace</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cn</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/cn/" class="bare">https://linked.data.gov.au/def/cn/</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compound Name Model, <a href="#CNM">CNM</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.opengis.net/ont/geosparql#" class="bare">http://www.opengis.net/ont/geosparql#</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The OGC&#8217;s GeoSPARQL standard&#8217;s ontology&#8217;s namespace, see <a href="#GEO">GEO</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/lifecycle/" class="bare">https://linked.data.gov.au/def/lifecycle/</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lifecycle Model, <a href="#LM">LM</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>owl</code></p></td>
@@ -696,6 +687,11 @@ This Model is under test by Queensland Government and is a candidate model for A
 <td class="tableblock halign-left valign-top"><p class="tableblock">RDF Schema ontology namespace</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>roads</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/roads/*" class="bare">https://linked.data.gov.au/def/roads/*</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Roads Model, <a href="#ROADS">ROADS</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sosa</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.w3.org/ns/sosa/" class="bare">http://www.w3.org/ns/sosa/</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sensor, Observation, Sample, and Actuator ontology namespace</p></td>
@@ -706,19 +702,9 @@ This Model is under test by Queensland Government and is a candidate model for A
 <td class="tableblock halign-left valign-top"><p class="tableblock">Simple Knowledge Organization System (SKOS) ontology namespace</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>time</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.w3.org/2006/time#" class="bare">http://www.w3.org/2006/time#</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Time Ontology in OWL namespace</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>void</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://rdfs.org/ns/void#" class="bare">http://rdfs.org/ns/void#</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vocabulary of Interlinked Data (VoID) ontology namespace</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>xsd</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.w3.org/2001/XMLSchema#" class="bare">http://www.w3.org/2001/XMLSchema#</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">XML Schema Definitions ontology namespace</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XML Schema Definitions ontology namespace, <a href="#XSD">XSD</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -726,7 +712,7 @@ This Model is under test by Queensland Government and is a candidate model for A
 <div class="sect2">
 <h3 id="_conformance"><a class="anchor" href="#_conformance"></a>2.3. Conformance</h3>
 <div class="paragraph">
-<p>This model conforms to the <a href="https://w3id.org/profile/ontpub">OntPub Profile</a> which is a specification for ontology publication that mandates certain structural and metadata properties for the model as a whole and model elements. Metadata elements for the model as a whole - the ontology - are given in the <a href="#_metadata">Metadata</a> section above.</p>
+<p>This model&#8217;s specification conforms to the <a href="https://w3id.org/profile/ontpub">OntPub Profile</a> which is a standard for ontology publication that mandates certain structural and metadata properties for the model as a whole and model elements.</p>
 </div>
 <div class="sect3">
 <h4 id="_figures"><a class="anchor" href="#_figures"></a>2.3.1. Figures</h4>
@@ -735,7 +721,7 @@ This Model is under test by Queensland Government and is a candidate model for A
 </div>
 <div id="fig-figure-key" class="imageblock">
 <div class="content">
-<img src="img/key.png" alt="key">
+<img src="img/Key.svg" alt="Key">
 </div>
 <div class="title">Figure 1. Key of elements used in this Model&#8217;s figures</div>
 </div>
@@ -743,7 +729,7 @@ This Model is under test by Queensland Government and is a candidate model for A
 <div class="sect3">
 <h4 id="_example_data"><a class="anchor" href="#_example_data"></a>2.3.2. Example Data</h4>
 <div class="paragraph">
-<p>Example Data used in this document, for instance in model element "Example" values, are <a href="https://www.w3.org/RDF/">RDF</a> data in the <a href="https://www.w3.org/TR/turtle/">Turtle</a> syntax.</p>
+<p>Example data used in this document, for instance in model element "Example" values, are <a href="#RDF">RDF</a> data presented in the <a href="#TTL">TTL</a> syntax.</p>
 </div>
 </div>
 </div>
@@ -753,13 +739,29 @@ This Model is under test by Queensland Government and is a candidate model for A
 <h2 id="_introduction"><a class="anchor" href="#_introduction"></a>3. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The model represents address components and objects addresses relate to using structures informed by the international addressing standard, <a href="#ISO19160-1">[ISO19160-1]</a>. However, this model is expressed in Semantic Web form, rather than ISO19160-1&#8217;s UML and XML, and this model also conforms to several generic Semantic Web models for the labelling of geospatial features, feature/geometry representation and so on. Thus, while it conceptually aligns with ISO19160-1, content must be deliberately exported via a mapping from this model to XML documents for testable ISO19160-1 conformance.</p>
+<p>This model considers addresses - 'street addresses' - to be a form of compound name for a geospatial feature. For example, the Australian address:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>72 Yundah Street
+Shorncliffe QLD
+4017 Australia</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Data from made according to this model, when stored in one of the <a href="#RDF">[RDF]</a> serialization formats such as <a href="#TTL">[TTL]</a>, is directly validatable according to a series of Semantic Web validators, see <a href="#AnnexB">Annex B: Validators</a>.</p>
+<p>is a form of name for the cadastral parcel that defines a particular property&#8217;s extend - a 'lot'.</p>
 </div>
 <div class="paragraph">
-<p>This model does not model <em>all</em> possible address data managers' concerns: it leaves things like the detailed modelling of spatial information to other models or extensions to this model. Also, by reusing elements from well-known Semantic Web models, this model has many "pick-up" points that can be used to join other information on to. For example, the <code>Resource</code> indicated as an <code>Address Component</code> value, may be a locally-defined simple value type - a number or string - but it may also be a complex object defined elsewhere, such as a <code>Locality</code>.</p>
+<p>Addresses modelled according to this model do more than just name things though: they are linked to geocodes - spatial points - allowing for map-based locating and route planning, sometimes other addresses for the same spatial object, sometimes parent/child addresses for dwelling compounds and management information such as lifecycle stages.</p>
+</div>
+<div class="paragraph">
+<p>Overall, this model represents addresses, certain properties for them, including components, geocodes and the objects to which addresses are assigned in a conceptual manner similar to the international addressing standard, <a href="#ISO19160-1">ISO19160-1</a>. However, this model is expressed in Semantic Web<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> form, rather than ISO19160-1&#8217;s UML and XML, and many aspects of the conceptual range that ISO19160 covers this model does not directly cover but instead delegates to other models which it imports, such as the representation of address and address component lifecycle information. This is done so that common things that this model does are available for use elsewhere via a series of mini-models that others may use without importing this whole model.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, this model relies on several specialised sub-models to handle specific types of address componentry, such as roads and geographical object naming. By doing this, those things many be modelled independently of addressing and roads and geographic object names datasets can be used with address data very easily.</p>
+</div>
+<div class="paragraph">
+<p>This model makes no attempt to model the things to which addresses are assigned. In the example above, the address "72 Yundah St&#8230;&#8203;." is mentioned as being a form of name for, or assigned to, a cadastral parcel or a 'lot'. This model doesn&#8217;t know what those things are and leaves their modelling to other systems. This means that using this model alone, you cannot know what an address is for unless you implement a component to describe the type of object the address is assigned to. This decision has been made since there could be great complexity in spatial object / infrastructure modelling that isn&#8217;t really core to addressing, so that&#8217;s best left to other, likely sophisticated, models.</p>
 </div>
 <div class="sect2">
 <h3 id="_sources_of_requirements"><a class="anchor" href="#_sources_of_requirements"></a>3.1. Sources of Requirements</h3>
@@ -781,21 +783,36 @@ This Model is under test by Queensland Government and is a candidate model for A
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Feature / Feature Labelling differentiation</p>
+<p><a href="#_feature_feature_naming_differentiation">Feature / Feature Naming differentiation</a></p>
 </li>
 <li>
-<p>Feature / Geometry differentiation</p>
+<p><a href="#_feature_geometry_differentiation">Feature / Geometry differentiation</a></p>
 </li>
 <li>
-<p>Geocodes</p>
+<p><a href="#_geocodes">Geocodes</a></p>
 </li>
 <li>
-<p>Profile Views</p>
+<p><a href="#_road_geographical_object_names">Road &amp; Geographical Object Names</a></p>
+</li>
+<li>
+<p><a href="#_address_component_grouping">Address component grouping</a></p>
+</li>
+<li>
+<p><a href="#_water_addressing">Water Addressing</a></p>
+</li>
+<li>
+<p><a href="#_related_addresses">Related Addresses</a></p>
+</li>
+<li>
+<p><a href="#_lifecycles">Lifecycles</a></p>
+</li>
+<li>
+<p><a href="#_profile_views">Profile Views</a></p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>These principles are explained in the following sub-sections and the first two reference the following figure.</p>
+<p>These principles are explained in the following subsections and the first two reference the following figure.</p>
 </div>
 <div id="fig-address-spatial" class="imageblock">
 <div class="content">
@@ -804,21 +821,21 @@ This Model is under test by Queensland Government and is a candidate model for A
 <div class="title">Figure 2. Address / Addressable Object and Feature / Geometry differentiation overview</div>
 </div>
 <div class="sect3">
-<h4 id="_feature_feature_labelling_differentiation"><a class="anchor" href="#_feature_feature_labelling_differentiation"></a>3.2.1. Feature / Feature Labelling differentiation</h4>
+<h4 id="_feature_feature_naming_differentiation"><a class="anchor" href="#_feature_feature_naming_differentiation"></a>3.2.1. Feature / Feature Naming differentiation</h4>
 <div class="paragraph">
-<p>This model details the elements of an <em>address</em> but not details of the spatial objects that addresses are assigned to. The general conceptual split of address/spatial object follows the Address/AddressableObject split in ISO19160-1 <a href="#ISO19160-1">[ISO19160-1]</a>. Addresses are seen as a form of complex, multi-part, label - Feature Label - for a spatial Feature.</p>
+<p>This model details the elements of an <em>address</em> but not details of the spatial objects that addresses are assigned to. The general conceptual split of address/spatial object follows the Address/AddressableObject split in ISO19160-1 <a href="#ISO19160-1">ISO19160-1</a>. Addresses are seen as a form of complex, multi-part, label - Feature Label - for a spatial Feature.</p>
 </div>
 <div class="paragraph">
 <p>This allows for the representation, and ultimately the management, of labels - text, numbers, identifiers, references - separately to the management of spatial objects.</p>
 </div>
 <div class="paragraph">
-<p>This Feature / Feature Labelling separation applies to Place Names, Roads and Administrative Areas as well as Addresses and this expression of Feature / Feature Labelling separation for addressing is a formal profile of the more general <em>Feature Labelling Model</em> <a href="#FLM">[FLM]</a>. There are other profiles for those other domains. The FLM, this model and the other FLM profiles are all pat of Queensland Spatial Information&#8217;s <a href="https://spatial-information-qld.github.io/supermodel/supermodel.html"><em>Supermodel</em></a> which is an enterprise data model for multi-model data integration.</p>
+<p>This Feature / Feature Naming separation applies to Place Names, Roads and Administrative Areas as well as Addresses and this expression of Feature / Feature Naming separation for addressing is a formal profile of the more general <em>Compound Naming Model</em> <a href="#CNM">CNM</a>. There are other profiles for those other domains. The FLM, this model and the other FLM profiles are all pat of Queensland Spatial Information&#8217;s <a href="https://spatial-information-qld.github.io/supermodel/supermodel.html"><em>Supermodel</em></a> which is an enterprise data model for multi-model data integration.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_feature_geometry_differentiation"><a class="anchor" href="#_feature_geometry_differentiation"></a>3.2.2. Feature / Geometry differentiation</h4>
 <div class="paragraph">
-<p>(Geo)spatial objects referenced by this model are not geometries but conceptual spatial objects that have as an expression of their spatial projection one or more geometries. This conceptual object - Feature - and spatial expression - Geometry - split is based on fundamental spatial modelling in standards such as <a href="#ISO19101-1">[ISO19101-1]</a> and their expression in the Semantic Web spatial standard <a href="#GEO">[GEO]</a>.</p>
+<p>(Geo)spatial objects referenced by this model are not geometries but conceptual spatial objects that have as an expression of their spatial projection one or more geometries. This conceptual object - Feature - and spatial expression - Geometry - split is based on fundamental spatial modelling in standards such as <a href="#ISO19101-1">ISO19101-1</a> and their expression in the Semantic Web spatial standard <a href="#GEO">GEO</a>.</p>
 </div>
 <div class="paragraph">
 <p>This Feature / Geometry distinction allows individual spatial objects to have multiple Geometries: different resolutions, in different coordinate systems and even sets of Geometries that have different roles or that show variation over time.</p>
@@ -830,36 +847,41 @@ This Model is under test by Queensland Government and is a candidate model for A
 <p>Geocodes are point geometries associated with an address that can be used by mapping applications to locate the address, or part of an addressable object, on a map.</p>
 </div>
 <div class="paragraph">
-<p>Since geocodes are directly related to an Address and are only indirectly related to an Addressable Object, in this model they are modelled as a specialised form of Features with a Geometry used to indicate the point location. The Address relates to the Geocode in a similar way to an Address relating to an Addressable Object however the Address isn&#8217;t the address <em>for</em> the Addressable Object but rather the Geocode is another kind of object associated with the Address with a <em>role</em> indicated, e.g. a particular Geocode might indicate the "property centroid" or perhaps it&#8217;s the "deliveries point" of a large building address.</p>
+<p>Since geocodes are directly related to an Address and are only indirectly related to an Addressable Object, in this model they are modelled as a specialised form of Features with a Geometry used to indicate the point location. The Address relates to the Geocode in a similar way to an Address relating to an Addressable Object however the Address isn&#8217;t the address <em>for</em> the Addressable Object but rather the Geocode is another kind of object associated with the Address with a <em>role</em> indicated, e.g. a particular Geocode might indicate the "property centroid", or perhaps it&#8217;s the "deliveries point" of a large building address.</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_selecting_address_components"><a class="anchor" href="#_selecting_address_components"></a>3.3. Selecting Address Components</h3>
-<div class="paragraph">
-<p>TODO</p>
 </div>
 <div class="sect3">
-<h4 id="_water_addressing"><a class="anchor" href="#_water_addressing"></a>3.3.1. Water Addressing</h4>
+<h4 id="_road_geographical_object_names"><a class="anchor" href="#_road_geographical_object_names"></a>3.2.4. Road &amp; Geographical Object Names</h4>
 <div class="paragraph">
 <p>TODO</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_property_addressing"><a class="anchor" href="#_property_addressing"></a>3.3.2. Property Addressing</h4>
+<h4 id="_address_component_grouping"><a class="anchor" href="#_address_component_grouping"></a>3.2.5. Address component grouping</h4>
 <div class="paragraph">
 <p>TODO</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_geographic_names"><a class="anchor" href="#_geographic_names"></a>3.3.3. Geographic Names</h4>
+<h4 id="_water_addressing"><a class="anchor" href="#_water_addressing"></a>3.2.6. Water Addressing</h4>
 <div class="paragraph">
 <p>TODO</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_related_addresses"><a class="anchor" href="#_related_addresses"></a>3.2.7. Related Addresses</h4>
+<div class="paragraph">
+<p>TODO</p>
 </div>
-<div class="sect2">
-<h3 id="_profile_views"><a class="anchor" href="#_profile_views"></a>3.4. Profile Views</h3>
+</div>
+<div class="sect3">
+<h4 id="_lifecycles"><a class="anchor" href="#_lifecycles"></a>3.2.8. Lifecycles</h4>
+<div class="paragraph">
+<p>TODO</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_profile_views"><a class="anchor" href="#_profile_views"></a>3.2.9. Profile Views</h4>
 <div class="paragraph">
 <p>Addresses have multiple roles: they indicate places with names (or Features with Labels), they are things to be managed by data holders, and they have statuses, lifecycles and so on. Sometimes we are only interested in one of these aspects of an Address or one <em>profile</em> and not the total Address information held. We may also be interested only in a reduced set of properties of an Address even when others within that role are present, e.g. the current status, not all the statues an Address has ever had. Finally, different implementers of this model may want to implement different jurisdictional profiles of the entire model that, for example, mandate records for that jurisdiction&#8217;s system&#8217;s use of Addresses that would be meaningless outside that jurisdiction.</p>
 </div>
@@ -867,11 +889,12 @@ This Model is under test by Queensland Government and is a candidate model for A
 <p>All of these sorts of <em>profiles</em> of Addresses are handled in a similar way in this model: they are declared Profiles of the model that may implement additional rules and/or requirements on data, however they must always conform to the main Address Model itself.</p>
 </div>
 <div class="paragraph">
-<p>Profile modelling is given in <a href="#PROF">[PROF]</a> and requesting profiles from data conforming to a model is given in <a href="#CONNEGP">[CONNEGP]</a>.</p>
+<p>Profile modelling is given in <a href="#PROF">PROF</a> and requesting profiles from data conforming to a model is given in <a href="#CONNEGP">CONNEGP</a>.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_model_resources"><a class="anchor" href="#_model_resources"></a>3.5. Model resources</h3>
+<h3 id="_model_resources"><a class="anchor" href="#_model_resources"></a>3.3. Model resources</h3>
 <div class="paragraph">
 <p>This document is this model&#8217;s "Specification" which is its authoritative, human-readable, definition document. This model also contains other resources with other roles:</p>
 </div>
@@ -930,7 +953,7 @@ This Model is under test by Queensland Government and is a candidate model for A
 <h2 id="_model"><a class="anchor" href="#_model"></a>4. Model</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This model is composed of Web Ontology Language (OWL) <a href="#OWL">[OWL]</a> Classes and Properties. While some of the properties are restricted in their use to various classes, the Classes and Properties are actually defined individually and both are "first class model citizens", with golbal identity, that can be used in isolation as well as together. This is in contrast to Unified Modelling Language (UML) <em>Class Diagrams</em> which treat Properties as sub-parts of particular classes.</p>
+<p>This model is composed of Web Ontology Language (OWL) <a href="#OWL">OWL</a> Classes and Properties. While some of the properties are restricted in their use to various classes, the Classes and Properties are actually defined individually and both are "first class model citizens", with golbal identity, that can be used in isolation as well as together. This is in contrast to Unified Modelling Language (UML) <em>Class Diagrams</em> which treat Properties as sub-parts of particular classes.</p>
 </div>
 <div class="paragraph">
 <p>This model defines some Classes and Properties and also requires certain existing Cs &amp; Ps for reuse. All Cs &amp; Ps in this model, both defined and reused, are listed here with an indication of where the element is difined given in the <em>Is Defined By</em> field.</p>
@@ -1007,7 +1030,7 @@ This Model is under test by Queensland Government and is a candidate model for A
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s <code>Address</code> class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s <code>Address</code> class</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Expected Properties</p></td>
@@ -1093,7 +1116,7 @@ This Model is under test by Queensland Government and is a candidate model for A
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s <code>AddressableObject</code> class and its associated codelist of subtypes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressableObject</code> class and its associated codelist of subtypes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope note</p></td>
@@ -1162,7 +1185,7 @@ ex:addre-2 addr:isAddressFor ex:admin-area-z .</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s <code>AddressComponent</code> class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressComponent</code> class</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope note</p></td>
@@ -1241,7 +1264,7 @@ ex:addre-2 addr:isAddressFor ex:admin-area-z .</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s <code>AddressComponent</code> class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressComponent</code> class</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope note</p></td>
@@ -1321,7 +1344,7 @@ ex:addre-2 addr:isAddressFor ex:admin-area-z .</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s <code>AddressLifecycle</code> class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressLifecycle</code> class</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope note</p></td>
@@ -1408,7 +1431,7 @@ addrls:proposed
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s <code>AddressLifecycle</code> class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressLifecycle</code> class</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope note</p></td>
@@ -1475,7 +1498,7 @@ ex:addr-1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s <code>AddressPosition</code> &amp; <code>AddressPositionType</code> classes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressPosition</code> &amp; <code>AddressPositionType</code> classes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope note</p></td>
@@ -1702,7 +1725,7 @@ ex:addr-1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s object relations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s object relations</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Domain</p></td>
@@ -1764,7 +1787,7 @@ ex:addr-1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s object relations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s object relations</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Domain</p></td>
@@ -1826,7 +1849,7 @@ ex:addr-1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s object relations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s object relations</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Domain</p></td>
@@ -1886,7 +1909,7 @@ ex:addr-1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s object relations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s object relations</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Domain</p></td>
@@ -1947,7 +1970,7 @@ ex:addr-1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s AddressPosition class and properties</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s AddressPosition class and properties</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Domain</p></td>
@@ -2071,7 +2094,7 @@ ex:addr-1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s object relations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s object relations</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Domain</p></td>
@@ -2143,7 +2166,7 @@ ex:addr-1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s AddressComponent object&#8217;s properties</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s AddressComponent object&#8217;s properties</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Domain</p></td>
@@ -2220,7 +2243,7 @@ ex:addr-1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">[ISO19160-1]</a>'s AddressComponent object&#8217;s properties</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Derived from <a href="#ISO19160-1">ISO19160-1</a>'s AddressComponent object&#8217;s properties</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Domain</p></td>
@@ -2295,7 +2318,7 @@ ex:addr-1
 </ul>
 </div>
 <div class="paragraph">
-<p>Three of these vocabularies are derived from vocabularies (codelists) within <a href="#ISO19160-1">[ISO19160-1]</a> but all are extended for use here. The remaining vocabulary - Address Role Types - is derived from the various elements of <a href="#ISO19160-1">[ISO19160-1]</a> but not directly from one vocabulary.</p>
+<p>Three of these vocabularies are derived from vocabularies (codelists) within <a href="#ISO19160-1">ISO19160-1</a> but all are extended for use here. The remaining vocabulary - Address Role Types - is derived from the various elements of <a href="#ISO19160-1">ISO19160-1</a> but not directly from one vocabulary.</p>
 </div>
 <div class="paragraph">
 <p>Those defined as ICSM vocabularies are:</p>
@@ -2343,7 +2366,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 <div class="sect2">
 <h3 id="_address_component_types"><a class="anchor" href="#_address_component_types"></a>5.1. Address Component Types</h3>
 <div class="paragraph">
-<p>This vocabulary is an extended version of <a href="#ISO19160-1">[ISO19160-1]</a>'s <code>AddressComponentType</code> vocabulary. The original 8 concepts from the standard are included however only one of them - <code>postcode</code> - is suggested for use within this model. An additional 19 concepts are taken from address elements in the G-NAF, such as <code>numberFirstSuffix</code>. A further 4 concepts have also been added during the design of this model to cater for newly understood future ANZ addressing needs, such as <code>placeName</code> and <code>indigenousPlaceName</code>.</p>
+<p>This vocabulary is an extended version of <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressComponentType</code> vocabulary. The original 8 concepts from the standard are included however only one of them - <code>postcode</code> - is suggested for use within this model. An additional 19 concepts are taken from address elements in the G-NAF, such as <code>numberFirstSuffix</code>. A further 4 concepts have also been added during the design of this model to cater for newly understood future ANZ addressing needs, such as <code>placeName</code> and <code>indigenousPlaceName</code>.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2560,7 +2583,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 <div class="sect2">
 <h3 id="_address_lifecycle_stage_types"><a class="anchor" href="#_address_lifecycle_stage_types"></a>5.2. Address Lifecycle Stage Types</h3>
 <div class="paragraph">
-<p>This vocabulary is currently as per <a href="#ISO19160-1">[ISO19160-1]</a>'s <code>AddressLifecycleStage</code> vocabulary, however it is expected that this vocabulary will be extended early in its use in Australia/NZ as it is know that jurisdictions within ANZ use other statuses</p>
+<p>This vocabulary is currently as per <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressLifecycleStage</code> vocabulary, however it is expected that this vocabulary will be extended early in its use in Australia/NZ as it is know that jurisdictions within ANZ use other statuses</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2626,7 +2649,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 <div class="sect2">
 <h3 id="_address_role_types"><a class="anchor" href="#_address_role_types"></a>5.3. Address Role Types</h3>
 <div class="paragraph">
-<p>This vocabulary is inspired by <a href="#ISO19160-1">[ISO19160-1]</a>'s <code>AddressPosition</code> and <code>AddressPositionType</code> classes and the often repeated need in ANZ to assign purposes to Addresses. All elements are original in this model.</p>
+<p>This vocabulary is inspired by <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressPosition</code> and <code>AddressPositionType</code> classes and the often repeated need in ANZ to assign purposes to Addresses. All elements are original in this model.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2687,7 +2710,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 <div class="sect2">
 <h3 id="_address_status_types"><a class="anchor" href="#_address_status_types"></a>5.4. Address Status Types</h3>
 <div class="paragraph">
-<p>This vocabulary is an extended version of <a href="#ISO19160-1">[ISO19160-1]</a>'s <code>AddressStatus</code> vocabulary.</p>
+<p>This vocabulary is an extended version of <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressStatus</code> vocabulary.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2789,7 +2812,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 <div class="sect2">
 <h3 id="req-2"><a class="anchor" href="#req-2"></a>A.2 Shared addressable object / address conception</h3>
 <div class="paragraph">
-<p>This Model inherits the Address / Addressable Object pattern from the Compound Naming Model <a href="#CNM">[CNM]</a> which it profiles.</p>
+<p>This Model inherits the Address / Addressable Object pattern from the Compound Naming Model <a href="#CNM">CNM</a> which it profiles.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2801,7 +2824,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 <p>The model profiles a number of common, general-purpose, Semantic Web models, such as GeoSPARQL (spatiality), OWL-TIME (temporality), PROV (provenance / process flow), schema.org (general-purpose description) and thus is compatible with other models that profile these too.</p>
 </div>
 <div class="paragraph">
-<p>Some of this Model’s key patterns are inherited from the stand-alone Compound Naming <a href="#CNM">[CNM]</a> and Lifecycle <a href="#LM">[LM]</a> models which other models may also inherit from leading to interoperability on those patterns.</p>
+<p>Some of this Model’s key patterns are inherited from the stand-alone Compound Naming <a href="#CNM">CNM</a> and Lifecycle <a href="#LM">LM</a> models which other models may also inherit from leading to interoperability on those patterns.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2813,13 +2836,13 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 <p>The model is published as a Profiles Vocabulary profile with profile elements that assist with the development of profiles of this model, for example, separately-published codelists as vocabularies which may be extended or constrained.</p>
 </div>
 <div class="paragraph">
-<p>Due to this model inheriting from standard models, it may adopt mapping from them to others, for example, GeoSPARQL’s mapping to the ISO Simple Features model <a href="#ISO19125-1">[ISO19125-1]</a>.</p>
+<p>Due to this model inheriting from standard models, it may adopt mapping from them to others, for example, GeoSPARQL’s mapping to the ISO Simple Features model <a href="#ISO19125-1">ISO19125-1</a>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="req-5"><a class="anchor" href="#req-5"></a>A.5 International model uptake</h3>
 <div class="paragraph">
-<p>This Model profiles multiple international models – both general-purpose and domain-specific – in particular it profiles <em>ISO 19160-1: Addressing</em> <a href="#ISO19160-1">[ISO19160-1]</a>.</p>
+<p>This Model profiles multiple international models – both general-purpose and domain-specific – in particular it profiles <em>ISO 19160-1: Addressing</em> <a href="#ISO19160-1">ISO19160-1</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2831,7 +2854,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 <div class="sect2">
 <h3 id="req-7"><a class="anchor" href="#req-7"></a>A.7 Enhanced address life-cycle management</h3>
 <div class="paragraph">
-<p>This Model inherits from the Lifecycles Model <a href="#LM">[LM]</a> and allows lifecycles to be applied to any model class such as Address, Addressable Object, Address Component.</p>
+<p>This Model inherits from the Lifecycles Model <a href="#LM">LM</a> and allows lifecycles to be applied to any model class such as Address, Addressable Object, Address Component.</p>
 </div>
 <div class="paragraph">
 <p>The stages of the Lifecycle Model are defined by vocabularies thus any implementer may extend or constrain available stages to suite their purpose.</p>
@@ -3478,64 +3501,94 @@ WHERE a.pid = 'ex:oxford';</code></pre>
 <div class="sect1">
 <h2 id="_bibliography"><a class="anchor" href="#_bibliography"></a>Bibliography</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a id="CNM"></a> [CNM] Australian Government Linked Data Working Group. <em>Compound Naming Model</em>. Semantic Web data model (2023). <a href="https://linked.data.gov.au/def/cn" class="bare">https://linked.data.gov.au/def/cn</a></p>
-</li>
-<li>
-<p><a id="CONNEGP"></a> [CONNEGP] World Wide Web Consortium, <em>Content Negotiation by Profile</em>, W3C Working Draft (20 March 2022). <a href="https://w3c.github.io/dx-connegp/connegp/" class="bare">https://w3c.github.io/dx-connegp/connegp/</a></p>
-</li>
-<li>
-<p><a id="GEO"></a> [GEO] Open Geospatial Consortium, <em>OGC GeoSPARQL - A Geographic Query Language for RDF Data, Version 1.1</em> (2021). OGC Implementation Specification. <a href="http://www.opengis.net/doc/IS/geosparql/1.1" class="bare">http://www.opengis.net/doc/IS/geosparql/1.1</a></p>
-</li>
-<li>
-<p><a id="ISO19101-1"></a> [ISO19101-1] International Organization for Standardization, <em>ISO 19101-1:2014 Geographic information — Reference model — Part 1: Fundamentals</em> (2014)</p>
-</li>
-<li>
-<p><a id="ISO19125-1"></a> [ISO19125-1] International Organization for Standardization, ISO 19125-1: Geographic information — Simple Feature Access - Part 1: Common Architecture (2004)</p>
-</li>
-<li>
-<p><a id="ISO19156"></a> [ISO19156] International Organization for Standardization, <em>ISO 19156: Geographic information — Observations and measurements</em> (2011)</p>
-</li>
-<li>
-<p><a id="ISO19160-1"></a> [ISO19160-1] International Organization for Standardization, <em>ISO 19160-1: Addressing Part 1: Conceptual model</em> (2015). <a href="https://www.iso.org/standard/61710.html" class="bare">https://www.iso.org/standard/61710.html</a></p>
-</li>
-<li>
-<p><a id="LM"></a> [LM] Australian Government Linked Data Working Group. <em>Lifecycle Model</em> (2023). <a href="https://linked.data.gov.au/def/lifecycle" class="bare">https://linked.data.gov.au/def/lifecycle</a></p>
-</li>
-<li>
-<p><a id="OWL"></a> [OWL] World Wide Web Consortium, <em>OWL 2 Web Ontology Language Document Overview (Second Edition)</em>, W3C Recommendation (11 December 2012). <a href="https://www.w3.org/TR/owl2-overview/" class="bare">https://www.w3.org/TR/owl2-overview/</a></p>
-</li>
-<li>
-<p><a id="PROF"></a> [PROF] World Wide Web Consortium, <em>The Profiles Vocabulary</em>, W3C Working Group Note (18 December 2019). <a href="https://www.w3.org/TR/dx-prof/" class="bare">https://www.w3.org/TR/dx-prof/</a></p>
-</li>
-<li>
-<p><a id="PROV"></a> [PROV] World Wide Web Consortium, <em>The Profiles Vocabulary</em>, W3C Working Group Note (18 December 2019). <a href="https://www.w3.org/TR/dx-prof/" class="bare">https://www.w3.org/TR/dx-prof/</a></p>
-</li>
-<li>
-<p><a id="RDF"></a> [RDF]World Wide Web Consortium, <em>RDF 1.1 Concepts and Abstract Syntax</em>, W3C Recommendation (25 February 2014). <a href="https://www.w3.org/TR/rdf11-concepts/" class="bare">https://www.w3.org/TR/rdf11-concepts/</a></p>
-</li>
-<li>
-<p><a id="SDO"></a> [SDO] W3C Schema.org Community Group, <em>schema.org</em>. Community ontology (2015). <a href="https://schema.org" class="bare">https://schema.org</a></p>
-</li>
-<li>
-<p><a id="SSN"></a> [SSN] World Wide Web Consortium, <em>Semantic Sensor Network Ontology</em>, W3C Recommendation (19 October 2017). <a href="https://www.w3.org/TR/vocab-ssn/" class="bare">https://www.w3.org/TR/vocab-ssn/</a></p>
-</li>
-<li>
-<p><a id="SKOS"></a> [SKOS] World Wide Web Consortium, <em>SKOS Simple Knowledge Organization System Reference</em>, W3C Recommendation (18 August 2009). <a href="https://www.w3.org/TR/skos-reference/" class="bare">https://www.w3.org/TR/skos-reference/</a></p>
-</li>
-<li>
-<p><a id="TTL"></a> [TTL] World Wide Web Consortium, <em>RDF 1.1 Turtle Terse RDF Triple Language</em>, W3C Recommendation (25 February 2014). <a href="https://www.w3.org/TR/turtle/" class="bare">https://www.w3.org/TR/turtle/</a></p>
-</li>
-</ul>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="CNM"></a> CNM</dt>
+<dd>
+<p>Australian Government Linked Data Working Group. <em>Compound Naming Model</em>. Semantic Web data model (2023). <a href="https://linked.data.gov.au/def/cn" class="bare">https://linked.data.gov.au/def/cn</a></p>
+</dd>
+<dt class="hdlist1"><a id="CONNEGP"></a> CONNEGP</dt>
+<dd>
+<p>World Wide Web Consortium, <em>Content Negotiation by Profile</em>, W3C Working Draft (20 March 2022). <a href="https://w3c.github.io/dx-connegp/connegp/" class="bare">https://w3c.github.io/dx-connegp/connegp/</a></p>
+</dd>
+<dt class="hdlist1"><a id="GEO"></a> GEO</dt>
+<dd>
+<p>Open Geospatial Consortium, <em>OGC GeoSPARQL - A Geographic Query Language for RDF Data, Version 1.1</em> (2021). OGC Implementation Specification. <a href="http://www.opengis.net/doc/IS/geosparql/1.1" class="bare">http://www.opengis.net/doc/IS/geosparql/1.1</a></p>
+</dd>
+<dt class="hdlist1"><a id="ISO19101-1"></a> ISO19101-1</dt>
+<dd>
+<p>International Organization for Standardization, <em>ISO 19101-1:2014 Geographic information — Reference model — Part 1: Fundamentals</em> (2014)</p>
+</dd>
+<dt class="hdlist1"><a id="ISO19125-1"></a> ISO19125-1</dt>
+<dd>
+<p>International Organization for Standardization, ISO 19125-1: Geographic information — Simple Feature Access - Part 1: Common Architecture (2004)</p>
+</dd>
+<dt class="hdlist1"><a id="ISO19156"></a> ISO19156</dt>
+<dd>
+<p>International Organization for Standardization, <em>ISO 19156: Geographic information — Observations and measurements</em> (2011)</p>
+</dd>
+<dt class="hdlist1"><a id="ISO19160-1"></a> ISO19160-1</dt>
+<dd>
+<p>International Organization for Standardization, <em>ISO 19160-1: Addressing Part 1: Conceptual model</em> (2015). <a href="https://www.iso.org/standard/61710.html" class="bare">https://www.iso.org/standard/61710.html</a></p>
+</dd>
+<dt class="hdlist1"><a id="LM"></a> LM</dt>
+<dd>
+<p>Australian Government Linked Data Working Group. <em>Lifecycle Model</em> (2023). <a href="https://linked.data.gov.au/def/lifecycle" class="bare">https://linked.data.gov.au/def/lifecycle</a></p>
+</dd>
+<dt class="hdlist1"><a id="OWL"></a> OWL</dt>
+<dd>
+<p>World Wide Web Consortium, <em>OWL 2 Web Ontology Language Document Overview (Second Edition)</em>, W3C Recommendation (11 December 2012). <a href="https://www.w3.org/TR/owl2-overview/" class="bare">https://www.w3.org/TR/owl2-overview/</a></p>
+</dd>
+<dt class="hdlist1"><a id="PROF"></a> PROF</dt>
+<dd>
+<p>World Wide Web Consortium, <em>The Profiles Vocabulary</em>, W3C Working Group Note (18 December 2019). <a href="https://www.w3.org/TR/dx-prof/" class="bare">https://www.w3.org/TR/dx-prof/</a></p>
+</dd>
+<dt class="hdlist1"><a id="PROV"></a> PROV</dt>
+<dd>
+<p>World Wide Web Consortium, <em>The Profiles Vocabulary</em>, W3C Working Group Note (18 December 2019). <a href="https://www.w3.org/TR/dx-prof/" class="bare">https://www.w3.org/TR/dx-prof/</a></p>
+</dd>
+<dt class="hdlist1"><a id="RDF"></a> RDF</dt>
+<dd>
+<p>World Wide Web Consortium, <em>RDF 1.1 Concepts and Abstract Syntax</em>, W3C Recommendation (25 February 2014). <a href="https://www.w3.org/TR/rdf11-concepts/" class="bare">https://www.w3.org/TR/rdf11-concepts/</a></p>
+</dd>
+<dt class="hdlist1"><a id="ROADS"></a> ROADS</dt>
+<dd>
+<p>Queensland Spatial Information. <em>Roads Model</em> (2023). <a href="https://linked.data.gov.au/def/roads" class="bare">https://linked.data.gov.au/def/roads</a></p>
+</dd>
+<dt class="hdlist1"><a id="SDO"></a> SDO</dt>
+<dd>
+<p>W3C Schema.org Community Group, <em>schema.org</em>. Community ontology (2015). <a href="https://schema.org" class="bare">https://schema.org</a></p>
+</dd>
+<dt class="hdlist1"><a id="SSN"></a> SSN</dt>
+<dd>
+<p>World Wide Web Consortium, <em>Semantic Sensor Network Ontology</em>, W3C Recommendation (19 October 2017). <a href="https://www.w3.org/TR/vocab-ssn/" class="bare">https://www.w3.org/TR/vocab-ssn/</a></p>
+</dd>
+<dt class="hdlist1"><a id="SKOS"></a> SKOS</dt>
+<dd>
+<p>World Wide Web Consortium, <em>SKOS Simple Knowledge Organization System Reference</em>, W3C Recommendation (18 August 2009). <a href="https://www.w3.org/TR/skos-reference/" class="bare">https://www.w3.org/TR/skos-reference/</a></p>
+</dd>
+<dt class="hdlist1"><a id="TTL"></a> TTL</dt>
+<dd>
+<p>World Wide Web Consortium, <em>RDF 1.1 Turtle Terse RDF Triple Language</em>, W3C Recommendation (25 February 2014). <a href="https://www.w3.org/TR/turtle/" class="bare">https://www.w3.org/TR/turtle/</a></p>
+</dd>
+<dt class="hdlist1"><a id="XSD"></a> XSD</dt>
+<dd>
+<p>World Wide Web Consortium, <em>XML Schema Part 2: Datatypes, Second Edition</em>, W3C Recommendation (28 October 2004). <a href="http://www.w3.org/TR/xmlschema-2/" class="bare">http://www.w3.org/TR/xmlschema-2/</a>.</p>
+</dd>
+</dl>
 </div>
 </div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. See <a href="https://en.wikipedia.org/wiki/Semantic_Web" class="bare">https://en.wikipedia.org/wiki/Semantic_Web</a> for a general description of the Semantic Web
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-06-20 05:01:50 UTC
+Last updated 2023-07-02 13:34:44 UTC
 </div>
 </div>
 </body>
