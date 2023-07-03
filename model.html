@@ -456,31 +456,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_sources_of_requirements">3.1. Sources of Requirements</a></li>
 <li><a href="#_major_modelling_principles">3.2. Major Modelling Principles</a></li>
-<li><a href="#_address_parts">3.3. Address Parts</a></li>
+<li><a href="#_model_resources">3.3. Model resources</a></li>
 </ul>
 </li>
-<li><a href="#_address_part_typing">4. Address part typing</a>
-<ul class="sectlevel3">
-<li><a href="#_address_part_templating">4.1. Address part templating</a></li>
-<li><a href="#_water_addressing">4.2. Water Addressing</a></li>
-<li><a href="#_related_addresses">4.3. Related Addresses</a></li>
-<li><a href="#_lifecycles">4.4. Lifecycles</a></li>
-<li><a href="#_profile_views">4.5. Profile Views</a></li>
-<li><a href="#_model_resources">4.6. Model resources</a></li>
-</ul>
-</li>
-<li><a href="#_model">5. Model</a>
+<li><a href="#_model">4. Model</a>
 <ul class="sectlevel2">
-<li><a href="#Classes">5.1. Classes</a></li>
-<li><a href="#Properties">5.2. Properties</a></li>
+<li><a href="#Classes">4.1. Classes</a></li>
+<li><a href="#Properties">4.2. Properties</a></li>
 </ul>
 </li>
-<li><a href="#_supporting_vocabularies">6. Supporting Vocabularies</a>
+<li><a href="#_supporting_vocabularies">5. Supporting Vocabularies</a>
 <ul class="sectlevel2">
-<li><a href="#_address_component_types">6.1. Address Component Types</a></li>
-<li><a href="#_address_lifecycle_stage_types">6.2. Address Lifecycle Stage Types</a></li>
-<li><a href="#_address_role_types">6.3. Address Role Types</a></li>
-<li><a href="#_address_status_types">6.4. Address Status Types</a></li>
+<li><a href="#_address_part_types">5.1. Address Part Types</a></li>
+<li><a href="#_address_lifecycle_stage_types">5.2. Address Lifecycle Stage Types</a></li>
+<li><a href="#_address_role_types">5.3. Address Role Types</a></li>
+<li><a href="#_address_status_types">5.4. Address Status Types</a></li>
 </ul>
 </li>
 <li><a href="#AnnexA">Annex A: Requirements</a>
@@ -503,8 +493,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_b_2_use">B.2 Use</a></li>
 </ul>
 </li>
-<li><a href="#AnnexC">Annex C: Extended Examples</a></li>
-<li><a href="#AnnexD">Annex D: Demo Implementations</a>
+<li><a href="#AnnexC">Annex C: Templating</a>
+<ul class="sectlevel2">
+<li><a href="#_generating_names">Generating names</a></li>
+<li><a href="#_basic_template">Basic Template</a></li>
+<li><a href="#_short_form_template">Short Form Template</a></li>
+</ul>
+</li>
+<li><a href="#AnnexD">Annex D: Extended Examples</a></li>
+<li><a href="#AnnexE">Annex E: Demo Implementations</a>
 <ul class="sectlevel2">
 <li><a href="#_c_1_rdf_database_demo">C.1 RDF Database Demo</a></li>
 <li><a href="#_c_2_relational_database_demo">C.2 Relational Database Demo</a></li>
@@ -518,7 +515,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="content">
 <div class="sect3">
 <h4 id="_a_semantic_web_data_model_used_for_address_information"><a class="anchor" href="#_a_semantic_web_data_model_used_for_address_information"></a><em>A Semantic Web data model used for address information</em></h4>
-
+<div id="fig-overview1" class="imageblock">
+<div class="content">
+<img src="img/Overview.svg" alt="Overview">
+</div>
+<div class="title">Figure 1. An informal model overview diagram showing the major elements of this model</div>
+</div>
 </div>
 <div class="sect1">
 <h2 id="_metadata"><a class="anchor" href="#_metadata"></a>1. Metadata</h2>
@@ -733,7 +735,7 @@ This Model is under test by Queensland Government and is a candidate model for A
 <div class="content">
 <img src="img/Key.svg" alt="Key">
 </div>
-<div class="title">Figure 1. Key of elements used in this Model&#8217;s figures</div>
+<div class="title">Figure 2. Key of elements used in this Model&#8217;s figures</div>
 </div>
 </div>
 <div class="sect3">
@@ -820,16 +822,13 @@ Shorncliffe QLD
 <p><a href="#_address_part_templating">Address part templating</a></p>
 </li>
 <li>
-<p><a href="#_water_addressing">Water Addressing</a></p>
+<p><a href="#_water_based_addressing">Water-based Addressing</a></p>
 </li>
 <li>
 <p><a href="#_related_addresses">Related Addresses</a></p>
 </li>
 <li>
-<p><a href="#_lifecycles">Lifecycles</a></p>
-</li>
-<li>
-<p><a href="#_profile_views">Profile Views</a></p>
+<p><a href="#_status_authority_lifecycles">Status Authority &amp; Lifecycles</a></p>
 </li>
 </ol>
 </div>
@@ -925,17 +924,17 @@ Shorncliffe QLD
 <p>For this reason, Geocodes are related to Addresses only in this model, not Addressable Objects, and any Geocode/Addressable Object relations are out-of-scope here.</p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_address_parts"><a class="anchor" href="#_address_parts"></a>3.3. Address Parts</h3>
+<div class="sect3">
+<h4 id="_address_parts"><a class="anchor" href="#_address_parts"></a>3.2.6. Address Parts</h4>
 <div class="paragraph">
 <p>Addresses are complex things: they are all made of multiple parts with different roles, types ordering and so on. To handle this, this model has a generic notion of a part which may be a simple thing, e.g. a postcode or a street number, but it may also be a complex thing, e.g. a road name that includes a "given" name for the road as well as some type indication.</p>
 </div>
 <div class="paragraph">
 <p>This model inherits from the Compound Naming Model <a href="#CNM">CNM</a> which allows for Compound Names, such as Addresses, to link to parts which are also Compound Names which then link to other Compound Names. In this way, Addresses may be "built up" from compound names for a series of parts, such as road names, locality names and so on.</p>
 </div>
+</div>
 <div class="sect3">
-<h4 id="_road_geographical_names"><a class="anchor" href="#_road_geographical_names"></a>3.3.1. Road &amp; Geographical Names</h4>
+<h4 id="_road_geographical_names"><a class="anchor" href="#_road_geographical_names"></a>3.2.7. Road &amp; Geographical Names</h4>
 <div class="paragraph">
 <p>This model can be used to model all the parts of a street names - the 'given' part e.g. "Smith", a type indicator such as "Street" and perhaps a suffix, such as "South" - or it can be used to just indicate that a particular street or road is a part of an address and the name for that road is to be found in an independent road name object.</p>
 </div>
@@ -959,12 +958,8 @@ Shorncliffe QLD
 </ul>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_address_part_typing"><a class="anchor" href="#_address_part_typing"></a>4. Address part typing</h2>
-<div class="sectionbody">
+<div class="sect3">
+<h4 id="_address_part_typing"><a class="anchor" href="#_address_part_typing"></a>3.2.8. Address part typing</h4>
 <div class="paragraph">
 <p>There are various given name parts of addresses which have previously been shoved into inappropriate data fields legacy address models and systems. For example, some models have contained <em>building</em> but not <em>property</em> names, so both types have been combined into the field for the former.</p>
 </div>
@@ -974,44 +969,288 @@ Shorncliffe QLD
 <div class="paragraph">
 <p>Implementers can limit the part type vocabulary of course and will have to handel all the types they allow in the vocabulary, but implementers should not "make do" with inappropriate field (part type) reuse.</p>
 </div>
-<div class="sect3">
-<h4 id="_address_part_templating"><a class="anchor" href="#_address_part_templating"></a>4.1. Address part templating</h4>
-<div class="paragraph">
-<p>TODO</p>
-</div>
 </div>
 <div class="sect3">
-<h4 id="_water_addressing"><a class="anchor" href="#_water_addressing"></a>4.2. Water Addressing</h4>
+<h4 id="_address_part_templating"><a class="anchor" href="#_address_part_templating"></a>3.2.9. Address part templating</h4>
 <div class="paragraph">
-<p>TODO</p>
+<p>This model is a conceptual model of addressing information and implementations of it will need to make or use logical and physical models. 'conceptual', 'logical', and 'physical' are variants of data models that show different levels of detail/abstraction for different purposes<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_related_addresses"><a class="anchor" href="#_related_addresses"></a>4.3. Related Addresses</h4>
 <div class="paragraph">
-<p>TODO</p>
+<p>None of the model types listed above provide logic for things like data presentation, so they will not be able to show you how to "print out" an address. So if I have an address' information represented according to this model and implemented in a graph, relational or other database system, I will still need <em>business logic</em> implemented in <em>application code</em> to realise the "print out".</p>
+</div>
+<div class="paragraph">
+<p>This model expects implementers to use some form of templating to create address "print outs" and other forms of presentation.</p>
+</div>
+<div class="paragraph">
+<p>While not a core part of this model, templating suggestions are presented in <a href="#AnnexC">Annex C: Templating</a>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_lifecycles"><a class="anchor" href="#_lifecycles"></a>4.4. Lifecycles</h4>
+<h4 id="_water_based_addressing"><a class="anchor" href="#_water_based_addressing"></a>3.2.10. Water-based Addressing</h4>
 <div class="paragraph">
-<p>TODO</p>
+<p>The ability to cater for addresses reachable by watercraft was a requirement of Queensland&#8217;s project that generated this model. Water-based addressing is standardised in the Australian/New Zealand standard <a href="#AS4189:2011">AS4189:2011</a> and it requires that water-based addressing use the name of the water feature as well as a water address number, the logic for the assignment of which is feature-specific, i.e. numbers for islands and for watercourses are determined differently.</p>
+</div>
+<div class="paragraph">
+<p>This model does not supply the logic for water number generation, just as it does not supply the logic for road number assignment, however it does provide address part types for water-based addressing, see the <a href="#_address_part_types">Address Part Types</a> in the <a href="#_supporting_vocabularies">Supporting Vocabularies</a> section.</p>
+</div>
+<div class="paragraph">
+<p>This model does not provide templating or application logic to show how a water-based address should order water address parts or perhaps use water addressing parts and not road addressing parts: templating logic is exemplified in the templating annex <a href="#AnnexC">Annex C: Templating</a> and appropriate part usage logic is left to implementers.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_profile_views"><a class="anchor" href="#_profile_views"></a>4.5. Profile Views</h4>
+<h4 id="_related_addresses"><a class="anchor" href="#_related_addresses"></a>3.2.11. Related Addresses</h4>
 <div class="paragraph">
-<p>Addresses have multiple roles: they indicate places with names (or Features with Labels), they are things to be managed by data holders, and they have statuses, lifecycles and so on. Sometimes we are only interested in one of these aspects of an Address or one <em>profile</em> and not the total Address information held. We may also be interested only in a reduced set of properties of an Address even when others within that role are present, e.g. the current status, not all the statues an Address has ever had. Finally, different implementers of this model may want to implement different jurisdictional profiles of the entire model that, for example, mandate records for that jurisdiction&#8217;s system&#8217;s use of Addresses that would be meaningless outside that jurisdiction.</p>
+<p>Many previous address models contain provisions for the modelling of related addresses. These may take the form of multiple addresses that are aliases for a single Addressable Object or perhaps "parent" and "child" addresses for a property with multiple sub-addresses and an overarching address, such as a unit complex.</p>
 </div>
 <div class="paragraph">
-<p>All of these sorts of <em>profiles</em> of Addresses are handled in a similar way in this model: they are declared Profiles of the model that may implement additional rules and/or requirements on data, however they must always conform to the main Address Model itself.</p>
+<p>This model does not implement any such logic for several reasons:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Representing relations characterised outside of addressing data within addressing data fails to use point-of-truth information</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>As per the introductory sentence above, logic for "parent" and "child" addressing or aliases is held in topological relationships or object identity, not addressing data</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Addressing information is almost always managed alongside information about the objects addressed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>This follows from the previous point: if object relations that an be used to infer address relations are available to address database implementers, they should be used directly, not re-implemented</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Previous Address models provide other properties for addresses that impact on address relations</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>for example, two related addresses might only be fully understood when the authority of the addresses is also known</p>
+</li>
+<li>
+<p>this means properties are not independent and this is a data modelling anti-pattern as it introduced maintenance issues</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>Profile modelling is given in <a href="#PROF">PROF</a> and requesting profiles from data conforming to a model is given in <a href="#CONNEGP">CONNEGP</a>.</p>
+<p>Expected use of this model to cater for related addresses requires the combined use of this model with any other models, as per the section <a href="#_model_reuse">Model Reuse</a> above, that contain the logic for relating addresses. Two examples of how related addresses <em>could</em> be represented by this model and the use of general topological rules, such as those provided by GeoSPARQL <a href="#GEO">GEO</a> are given next.</p>
+</div>
+<div class="sect4">
+<h5 id="_emulating_address_aliases"><a class="anchor" href="#_emulating_address_aliases"></a>Emulating address aliases</h5>
+<div class="paragraph">
+<p>Other address models state something such as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>AddressX isAliasOf AddressY</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or, the inverse:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>AddrezzY hasAlias AddressX</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This indicates that <code>AddressX</code> and <code>AddressY</code> are for the same Addressable Object. Other models may also indicate that, of the two addresses, one is preferred or in some way more authoritative, perhaps like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>AddressX isPrimary True
+AddressY isPrimary False</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Taken together we have:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>AddressX
+    hasAlias AddressY
+    isPrimary True
+
+AddressXY
+    hasAlias AddressX
+    isPrimary False</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If aliasing logic is that Addresses are aliases when they are both assigned to the same Addressable Object, then we can determine whether Addresses have aliases by just inspecting the identify of the thing they are addresses for. This would be implemented like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>AddressX
+    isAddressFor ObjectM
+
+AddressY
+    isAddressFor ObjectM</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Since most address models require the identity of the thing an address is for - perhaps an Addressable Object, an address "Site" or similar, then this requires no additional information to see that an alias exists.</p>
+</div>
+<div class="paragraph">
+<p>To cater for primary/secondary-style modelling, we look to the status of the addresses independently of their aliasing:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>AddressX
+    hasStatus Official
+
+AddressY
+    hasStatus Unofficial</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As for addressable object identification, most address models have a mechanism for indicating status/officialness. This model does it by relating an Address to a Lifecycle Stage with a type, such as Official, and, if that Lifecycle Stage is current, then the address has that status. Informal modelling according to this model to emulate <code>AddressX</code> being a 'primary' and <code>AddressY</code> being a 'secondary' for the same object, with <code>AddressY</code> previously having been the 'primary' could be:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>AddressX
+    isAddressFor ObjectM
+    hasLifecycleStage
+        type Official
+        status Current
+    hasLifecycleStage
+        type Unofficial
+        status Expired
+
+AddressY
+    isAddressFor ObjectM
+    hasLifecycleStage
+        type Unofficial
+        status Current
+    hasLifecycleStage
+        type Official
+        status Expired</pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_emulating_parentchild_address_relations"><a class="anchor" href="#_emulating_parentchild_address_relations"></a>Emulating parent/child address relations</h5>
+<div class="paragraph">
+<p>The most common logic for parent/child (or primary/secondary, whole/part or some other pair of mereological<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup> terms) relations is that a parent address is for a large property such as a unit complex and that the child addresses are for the parts within the parent, such as units in the complex.</p>
+</div>
+<div class="paragraph">
+<p>Such logic, at least for unit complexes is necessarily spatial: all the child units are spatially within the parent.</p>
+</div>
+<div class="paragraph">
+<p>Since this model already relies on spatial representation and topological relations inherited from the GeoSPARQL <a href="#GEO">GEO</a> model, the emulation of parent/child addressing just uses GeosPARQL relationships for the Addressable Objects like this:</p>
+</div>
+<div class="paragraph">
+<p>If <code>AddressP</code> is the parent of <code>AddressK</code>, <code>AddressL</code> &amp; <code>AddredssM</code>, then we would expect to see modelling like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>AddressP
+    isAddressFor ObjectP
+
+AddressK
+    isAddressFor ObjectK
+
+AddressL
+    isAddressFor ObjectL
+
+AddressM
+    isAddressFor ObjectM
+
+ObjectK isWithin ObjectP
+ObjectL isWithin ObjectP
+ObjectM isWithin ObjectP</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Other standard topological relations could be used so that the inverse to <em>within</em>, <em>contains</em>, could be stated:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>AddressP
+    isAddressFor ObjectP
+
+AddressK
+    isAddressFor ObjectK
+
+AddressL
+    isAddressFor ObjectL
+
+AddressM
+    isAddressFor ObjectM
+
+ObjectP
+    contains
+        ObjectK
+        ObjectL
+        ObjectM</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Not that it&#8217;s common in existing address models, but sibling addresses could be emulated in this way by using a <em>touches</em> relation between Addressable Objects.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_status_authority_lifecycles"><a class="anchor" href="#_status_authority_lifecycles"></a>3.2.12. Status Authority &amp; Lifecycles</h4>
+<div class="paragraph">
+<p>Other address models provide for notions of authority - whether addresses are ratified by some authoritative body or not - separately to notions of lifecycle - where, in stages of development an address is. This model does not and instead indicates status and authority all-in-one with relations from an Address to one or more Lifecycle Stages which can indicate both a particular Stage or status and a temporal range, as per the Lifecycle Model <a href="#LM">LM</a>.</p>
+</div>
+<div class="paragraph">
+<p>An informal address may be indicated like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>AddressX
+    hasLifecycleStage
+        status Informal</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If an address is proposed in the 1st of January, 2023, and it is not yet accepted/ratified, thus it is still informal, it could be modelled like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>AddressX
+    hasLifecycleStage
+        startDate 2023-01-01
+        status Proposed</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If that address became formal, status 'Ratified', on the 1st of June, 2023, then you might have:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>AddressX
+    hasLifecycleStage
+        startDate 2023-06-01
+        status Ratified
+    hasLifecycleStage
+        startDate 2023-01-01
+        endDate 2023-06-01
+        status Proposed</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the <a href="#AnnexD">Annex D: Extended Examples</a> for formal examples of this modelling.</p>
+</div>
+<div class="paragraph">
+<p>Implementers are free to create their own Lifecycle Stage types - statuses - using vocabularies.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_model_resources"><a class="anchor" href="#_model_resources"></a>4.6. Model resources</h3>
+<h3 id="_model_resources"><a class="anchor" href="#_model_resources"></a>3.3. Model resources</h3>
 <div class="paragraph">
 <p>This document is this model&#8217;s "Specification" which is its authoritative, human-readable, definition document. This model also contains other resources with other roles:</p>
 </div>
@@ -1030,19 +1269,19 @@ Shorncliffe QLD
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://spatial-information-qld.github.io/address-model/model.ttl">Ontology</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/addr.ttl">Ontology</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Schema</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The technical, machine-readable, version of this model</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_supporting_vocabularies">Supporting Vocabularies</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Vocabulary</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The codelist vocabularies developed for this model and links to others  defined elsewhere but used by this model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The codelist vocabularies developed for this model and links to others defined elsewhere but expected to be used by this model</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#AnnexA">Annex A: Requirements</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Guidance</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Requirements addressed by this model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Requirements formally addressed by this model</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#AnnexB">Annex B: Validators</a> &amp; <a href="https://github.com/Spatial-Information-QLD/address-model/blob/main/validator.ttl">Validator</a></p></td>
@@ -1050,14 +1289,19 @@ Shorncliffe QLD
 <td class="tableblock halign-left valign-top"><p class="tableblock">The machine-readable validator file used to validate data claiming conformance to this model</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#AnnexC">Annex C: Extended Examples</a>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#AnnexC">Annex C: Templating</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Guidance</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Suggestions and examples of templating for address presentation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#AnnexD">Annex D: Extended Examples</a>
 &amp;
 <a href="https://github.com/Spatial-Information-QLD/address-model/tree/main/extended-examples">Extended example data files</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Example</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Examples of data conforming, and some not conforming, to this model</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#AnnexD">Annex D: Demo Implementations</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#AnnexE">Annex E: Demo Implementations</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Example</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Demonstration implementations of this model in various database forms</p></td>
 </tr>
@@ -1067,7 +1311,7 @@ Shorncliffe QLD
 </div>
 </div>
 <div class="sect1">
-<h2 id="_model"><a class="anchor" href="#_model"></a>5. Model</h2>
+<h2 id="_model"><a class="anchor" href="#_model"></a>4. Model</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This model is composed of Web Ontology Language (OWL) <a href="#OWL">OWL</a> Classes and Properties. While some of the properties are restricted in their use to various classes, the Classes and Properties are actually defined individually and both are "first class model citizens", with golbal identity, that can be used in isolation as well as together. This is in contrast to Unified Modelling Language (UML) <em>Class Diagrams</em> which treat Properties as sub-parts of particular classes.</p>
@@ -1079,16 +1323,16 @@ Shorncliffe QLD
 <div class="content">
 <img src="img/overview.png" alt="overview">
 </div>
-<div class="title">Figure 2. An informal Model Overview diagram showing the major elements of this model</div>
+<div class="title">Figure 3. An informal Model Overview diagram showing the major elements of this model</div>
 </div>
 <div id="fig-upper-classes" class="imageblock">
 <div class="content">
 <img src="img/upper-classes.png" alt="upper classes">
 </div>
-<div class="title">Figure 3. Mapping of the main model classes to common Semantic Web classes</div>
+<div class="title">Figure 4. Mapping of the main model classes to common Semantic Web classes</div>
 </div>
 <div class="sect2">
-<h3 id="Classes"><a class="anchor" href="#Classes"></a>5.1. Classes</h3>
+<h3 id="Classes"><a class="anchor" href="#Classes"></a>4.1. Classes</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1112,7 +1356,7 @@ Shorncliffe QLD
 </ul>
 </div>
 <div class="sect3">
-<h4 id="Address"><a class="anchor" href="#Address"></a>5.1.1. Address</h4>
+<h4 id="Address"><a class="anchor" href="#Address"></a>4.1.1. Address</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1197,7 +1441,7 @@ Shorncliffe QLD
 </table>
 </div>
 <div class="sect3">
-<h4 id="AddressableObject"><a class="anchor" href="#AddressableObject"></a>5.1.2. Addressable Object</h4>
+<h4 id="AddressableObject"><a class="anchor" href="#AddressableObject"></a>4.1.2. Addressable Object</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1267,7 +1511,7 @@ ex:addre-2 addr:isAddressFor ex:admin-area-z .</code></pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="AddressComponent"><a class="anchor" href="#AddressComponent"></a>5.1.3. Address Component</h4>
+<h4 id="AddressComponent"><a class="anchor" href="#AddressComponent"></a>4.1.3. Address Component</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1346,7 +1590,7 @@ ex:addre-2 addr:isAddressFor ex:admin-area-z .</code></pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="AddressComponentType"><a class="anchor" href="#AddressComponentType"></a>5.1.4. Address Component Type</h4>
+<h4 id="AddressComponentType"><a class="anchor" href="#AddressComponentType"></a>4.1.4. Address Component Type</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1424,12 +1668,12 @@ ex:addre-2 addr:isAddressFor ex:admin-area-z .</code></pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="AddressLifecycleStage"><a class="anchor" href="#AddressLifecycleStage"></a>5.1.5. Address Lifecycle Stage</h4>
+<h4 id="AddressLifecycleStage"><a class="anchor" href="#AddressLifecycleStage"></a>4.1.5. Address Lifecycle Stage</h4>
 <div id="fig-lifecycle-stages" class="imageblock">
 <div class="content">
 <img src="img/lifecycle-stages.png" alt="lifecycle stages">
 </div>
-<div class="title">Figure 4. An example Address, <code>QLD186906</code>, with Lifecycle Stages</div>
+<div class="title">Figure 5. An example Address, <code>QLD186906</code>, with Lifecycle Stages</div>
 </div>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
@@ -1513,7 +1757,7 @@ addrls:proposed
 </table>
 </div>
 <div class="sect3">
-<h4 id="AddressLifecycleStageType"><a class="anchor" href="#AddressLifecycleStageType"></a>5.1.6. Address Lifecycle Stage Type</h4>
+<h4 id="AddressLifecycleStageType"><a class="anchor" href="#AddressLifecycleStageType"></a>4.1.6. Address Lifecycle Stage Type</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1580,7 +1824,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="AddressRole"><a class="anchor" href="#AddressRole"></a>5.1.7. Address Role</h4>
+<h4 id="AddressRole"><a class="anchor" href="#AddressRole"></a>4.1.7. Address Role</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1643,7 +1887,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="Geocode"><a class="anchor" href="#Geocode"></a>5.1.8. Geocode</h4>
+<h4 id="Geocode"><a class="anchor" href="#Geocode"></a>4.1.8. Geocode</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1710,7 +1954,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="GeocodeType"><a class="anchor" href="#GeocodeType"></a>5.1.9. Geocode Type</h4>
+<h4 id="GeocodeType"><a class="anchor" href="#GeocodeType"></a>4.1.9. Geocode Type</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1773,7 +2017,7 @@ ex:addr-1
 </div>
 </div>
 <div class="sect2">
-<h3 id="Properties"><a class="anchor" href="#Properties"></a>5.2. Properties</h3>
+<h3 id="Properties"><a class="anchor" href="#Properties"></a>4.2. Properties</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1803,7 +2047,7 @@ ex:addr-1
 </ul>
 </div>
 <div class="sect3">
-<h4 id="isAddressFor"><a class="anchor" href="#isAddressFor"></a>5.2.1. is address for</h4>
+<h4 id="isAddressFor"><a class="anchor" href="#isAddressFor"></a>4.2.1. is address for</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1869,7 +2113,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasAddress"><a class="anchor" href="#hasAddress"></a>5.2.2. has address</h4>
+<h4 id="hasAddress"><a class="anchor" href="#hasAddress"></a>4.2.2. has address</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1935,7 +2179,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasAddressComponent"><a class="anchor" href="#hasAddressComponent"></a>5.2.3. has address component</h4>
+<h4 id="hasAddressComponent"><a class="anchor" href="#hasAddressComponent"></a>4.2.3. has address component</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -1995,7 +2239,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasAddressComponentType"><a class="anchor" href="#hasAddressComponentType"></a>5.2.4. has address component type</h4>
+<h4 id="hasAddressComponentType"><a class="anchor" href="#hasAddressComponentType"></a>4.2.4. has address component type</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2056,7 +2300,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasAddressRole"><a class="anchor" href="#hasAddressRole"></a>5.2.5. has address role</h4>
+<h4 id="hasAddressRole"><a class="anchor" href="#hasAddressRole"></a>4.2.5. has address role</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2115,7 +2359,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasGeocode"><a class="anchor" href="#hasGeocode"></a>5.2.6. has geocode</h4>
+<h4 id="hasGeocode"><a class="anchor" href="#hasGeocode"></a>4.2.6. has geocode</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2180,7 +2424,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasLifecycleStage"><a class="anchor" href="#hasLifecycleStage"></a>5.2.7. has lifecycle stage</h4>
+<h4 id="hasLifecycleStage"><a class="anchor" href="#hasLifecycleStage"></a>4.2.7. has lifecycle stage</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2252,7 +2496,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasValue"><a class="anchor" href="#hasValue"></a>5.2.8. has value</h4>
+<h4 id="hasValue"><a class="anchor" href="#hasValue"></a>4.2.8. has value</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2325,7 +2569,7 @@ ex:addr-1
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasValueText"><a class="anchor" href="#hasValueText"></a>5.2.9. has value text</h4>
+<h4 id="hasValueText"><a class="anchor" href="#hasValueText"></a>4.2.9. has value text</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2407,7 +2651,7 @@ ex:addr-1
 </div>
 </div>
 <div class="sect1">
-<h2 id="_supporting_vocabularies"><a class="anchor" href="#_supporting_vocabularies"></a>6. Supporting Vocabularies</h2>
+<h2 id="_supporting_vocabularies"><a class="anchor" href="#_supporting_vocabularies"></a>5. Supporting Vocabularies</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This model uses many vocabularies to give specific values to classification properties for <code>Address</code>, <code>AddressComponent</code> and to qualify relationships within the model. This section lists those vocabularies and summarises their content but not their full content which is instead linked to.</p>
@@ -2421,7 +2665,7 @@ ex:addr-1
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#_address_component_types">Address Component Types</a></p>
+<p><a href="#_address_part_types">Address Part Types</a></p>
 </li>
 <li>
 <p><a href="#_address_lifecycle_stage_types">Address Lifecycle Stage Types</a></p>
@@ -2481,7 +2725,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 </table>
 </div>
 <div class="sect2">
-<h3 id="_address_component_types"><a class="anchor" href="#_address_component_types"></a>6.1. Address Component Types</h3>
+<h3 id="_address_part_types"><a class="anchor" href="#_address_part_types"></a>5.1. Address Part Types</h3>
 <div class="paragraph">
 <p>This vocabulary is an extended version of <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressComponentType</code> vocabulary. The original 8 concepts from the standard are included however only one of them - <code>postcode</code> - is suggested for use within this model. An additional 19 concepts are taken from address elements in the G-NAF, such as <code>numberFirstSuffix</code>. A further 4 concepts have also been added during the design of this model to cater for newly understood future ANZ addressing needs, such as <code>placeName</code> and <code>indigenousPlaceName</code>.</p>
 </div>
@@ -2698,7 +2942,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 </table>
 </div>
 <div class="sect2">
-<h3 id="_address_lifecycle_stage_types"><a class="anchor" href="#_address_lifecycle_stage_types"></a>6.2. Address Lifecycle Stage Types</h3>
+<h3 id="_address_lifecycle_stage_types"><a class="anchor" href="#_address_lifecycle_stage_types"></a>5.2. Address Lifecycle Stage Types</h3>
 <div class="paragraph">
 <p>This vocabulary is currently as per <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressLifecycleStage</code> vocabulary, however it is expected that this vocabulary will be extended early in its use in Australia/NZ as it is know that jurisdictions within ANZ use other statuses</p>
 </div>
@@ -2764,7 +3008,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 </table>
 </div>
 <div class="sect2">
-<h3 id="_address_role_types"><a class="anchor" href="#_address_role_types"></a>6.3. Address Role Types</h3>
+<h3 id="_address_role_types"><a class="anchor" href="#_address_role_types"></a>5.3. Address Role Types</h3>
 <div class="paragraph">
 <p>This vocabulary is inspired by <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressPosition</code> and <code>AddressPositionType</code> classes and the often repeated need in ANZ to assign purposes to Addresses. All elements are original in this model.</p>
 </div>
@@ -2825,7 +3069,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 </table>
 </div>
 <div class="sect2">
-<h3 id="_address_status_types"><a class="anchor" href="#_address_status_types"></a>6.4. Address Status Types</h3>
+<h3 id="_address_status_types"><a class="anchor" href="#_address_status_types"></a>5.4. Address Status Types</h3>
 <div class="paragraph">
 <p>This vocabulary is an extended version of <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressStatus</code> vocabulary.</p>
 </div>
@@ -3111,7 +3355,331 @@ The canonical validator&#8217;s list of elements will almost certainly grow as u
 </div>
 </div>
 <div class="sect1">
-<h2 id="AnnexC"><a class="anchor" href="#AnnexC"></a>Annex C: Extended Examples</h2>
+<h2 id="AnnexC"><a class="anchor" href="#AnnexC"></a>Annex C: Templating</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To present - on screen or in print form - consolidated address information, such as for an envelope, the address parts need to be assembled in a particular order and perhaps processes to make contractions etc. The logic for this is not contained in core model itself but must be implemented in <em>application code</em> reflecting <em>business logic</em>, as in what it is that implementers need to implement!</p>
+</div>
+<div class="paragraph">
+<p>This templating annex gives a demonstration of basic templating however users of this model are free to implement their own templates and template logic to suit their needs.</p>
+</div>
+<div class="sect2">
+<h3 id="_generating_names"><a class="anchor" href="#_generating_names"></a>Generating names</h3>
+<div class="paragraph">
+<p>Consider the example address:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Unit 4B, 72 Yundah Street
+Shorncliffe, Queensland
+4017 Australia</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The "print out" format is as above where the Address parts, as per Queensland&#8217;s implementation are:</p>
+</div>
+<table class="tableblock frame-all grid-all stripes-even" style="width: 50%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Part</th>
+<th class="tableblock halign-left valign-top">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"4B"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StreetNumber</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"72"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Road</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference to the Yundah Street road object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Locality</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference to the Shorncliffe locality object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StateOrTerritory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference to the Queensland state object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Postcode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"4017"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Country</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference to the Australia state object</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Using Feature Naming recursive logic - generating names for the Road, Locality, State &amp; Country objects elsewhere, the address model sees the following:</p>
+</div>
+<table class="tableblock frame-all grid-all stripes-even" style="width: 50%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Part</th>
+<th class="tableblock halign-left valign-top">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"4B"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StreetNumber</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"72"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Road</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Yundah Street"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Locality</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Shorncliffe"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StateOrTerritory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Queensland"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Postcode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"4017"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Country</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Australia"</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Thus, an informal template for the example address, given these values could be:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Unit {Unit}
+{StreetNumber} {Road}
+{Locality}, {StateOrTerritory}
+{Postcode} {Country}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is an informal logic - no formalised templating syntax is used - but it&#8217;s obvious to see that you&#8217;d place the value "Shorncliffe" where the marker <code>{Locality}</code>  exists in the informal template.</p>
+</div>
+<div class="paragraph">
+<p>Such an informal template will not work for comprehensive address templates as it doesn&#8217;t include many potential address parts, such as Unit/Flat information, contractions, building names etc.</p>
+</div>
+<div class="paragraph">
+<p>The next two subsections use a formal templating logic that can be extended for any level of template coverage/complexity.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_basic_template"><a class="anchor" href="#_basic_template"></a>Basic Template</h3>
+<div class="paragraph">
+<p>This template assembles the parts of an Address in a basic manner, similar to the example in the previous section, and something like this is expected to be the commonly used.</p>
+</div>
+<div class="paragraph">
+<p>The template, in EBNF form <a href="#ISO-IEC-14977">ISO-IEC-14977</a>, is:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>space = " "
+comma = ","
+letters = "A" | "B" | "C" | "D" | "E" | "F" | "G"
+       | "H" | "I" | "J" | "K" | "L" | "M" | "N"
+       | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
+       | "V" | "W" | "X" | "Y" | "Z" | "a" | "b"
+       | "c" | "d" | "e" | "f" | "g" | "h" | "i"
+       | "j" | "k" | "l" | "m" | "n" | "o" | "p"
+       | "q" | "r" | "s" | "t" | "u" | "v" | "w"
+       | "x" | "y" | "z" ;
+extra_characters = | " " | "-" ;
+numbers = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+extended_letters = letters | extra_characters ;
+extended_numbers = numbers | extra_characters ;
+prefix = extended_letters
+prefix_spaced = prefix, space
+level_number = extended_numbers | extended_numbers ;
+level = "Level" space level_number
+unit_number = extended_numbers
+unit = "Unit" space unit_number
+road_number = extended_numbers
+road_name = extended_letters
+locality = extended_letters
+state_or_territory = extended_letters
+country = extended_letters
+postcode = numbers
+suffix = extended_letters
+suffix_spaced = space, suffix
+
+address = [building_name NEWLINE]
+          [property_name NEWLINE]
+          [level space] [unit comma space] [road_number space] road_name NEWLINE
+          locality, space state_or_territory NEWLINE
+          postcode space country</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Part value for the example above, using these EBNF tokens are:</p>
+</div>
+<table class="tableblock frame-all grid-all stripes-even stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Token</th>
+<th class="tableblock halign-left valign-top">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>building_name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>property_name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>level</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Unit 4B"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>road_number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"72"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>road_name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Yundah Street"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>locality</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Shorncliffe"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>state_or_territory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Queensland"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>postcode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"4017"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>country</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"Australia"</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The template would result in this the same "print out" value as per the example in the section above:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Unit 4B, 72 Yundah Street
+Shorncliffe, Queensland
+4017 Australia</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_short_form_template"><a class="anchor" href="#_short_form_template"></a>Short Form Template</h3>
+<div class="paragraph">
+<p>This Short Form Template is an example of an alternative template to the Basic Template above.</p>
+</div>
+<div class="paragraph">
+<p>This template uses most of the same layout logic as the Basic Template but it replaces <code>NEWLINE</code> between <code>building_name</code> &amp; <code>property_name</code> with <code>space</code> and makes the followin contractions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"Level X" &#8594; Lv X</p>
+</li>
+<li>
+<p>"Unit X," &#8594; "X/"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It contracts States &amp; Territories as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"Australian Capital Territory" &#8594; "ACT"</p>
+</li>
+<li>
+<p>"New South Wales" &#8594; "NSW"</p>
+</li>
+<li>
+<p>"Northern Territory" &#8594; "NT"</p>
+</li>
+<li>
+<p>"Queensland" &#8594; "ACT"</p>
+</li>
+<li>
+<p>"South Australia" &#8594; "SA"</p>
+</li>
+<li>
+<p>"Tasmania" &#8594; "TAS"</p>
+</li>
+<li>
+<p>"Victoria" &#8594; "VIC"</p>
+</li>
+<li>
+<p>"Western Australia" &#8594; "WA"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It contracts Countries as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"Australia" &#8594; "Aust."</p>
+</li>
+<li>
+<p>"New Zealand" &#8594; "NZ"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This template will also see out short form templates implemented for referenced objects, such as Roads so for the example above, using the Roads Model&#8217;s short form template<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>, the road name "Yundah Street" will be contracted to "Yundah St".</p>
+</div>
+<div class="paragraph">
+<p>Given these changes, the example above would print out like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>4B/72 Yundah St
+Shorncliffe, QLD
+4017 Aust.</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="AnnexD"><a class="anchor" href="#AnnexD"></a>Annex D: Extended Examples</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The extended examples for this model are a series of data files stored in this model&#8217;s online code repository:</p>
@@ -3145,7 +3713,7 @@ The canonical validator&#8217;s list of elements will almost certainly grow as u
 </div>
 </div>
 <div class="sect1">
-<h2 id="AnnexD"><a class="anchor" href="#AnnexD"></a>Annex D: Demo Implementations</h2>
+<h2 id="AnnexE"><a class="anchor" href="#AnnexE"></a>Annex E: Demo Implementations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Several demonstration implementations of this Address model are given in the code repository containing its content.</p>
@@ -3620,6 +4188,10 @@ WHERE a.pid = 'ex:oxford';</code></pre>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
+<dt class="hdlist1"><a id="AS4189:2011"></a> AS4189:2011</dt>
+<dd>
+<p>Standards Australia. <em>AS/NZS 4819:2011 Rural and urban addressing</em></p>
+</dd>
 <dt class="hdlist1"><a id="CNM"></a> CNM</dt>
 <dd>
 <p>Australian Government Linked Data Working Group. <em>Compound Naming Model</em>. Semantic Web data model (2023). <a href="https://linked.data.gov.au/def/cn" class="bare">https://linked.data.gov.au/def/cn</a></p>
@@ -3635,6 +4207,10 @@ WHERE a.pid = 'ex:oxford';</code></pre>
 <dt class="hdlist1"><a id="GN"></a> GN</dt>
 <dd>
 <p>Queensland Spatial Information. <em>Geographical Names Model</em> (2023). <a href="https://linked.data.gov.au/def/gn" class="bare">https://linked.data.gov.au/def/gn</a></p>
+</dd>
+<dt class="hdlist1"><a id="ISO-IEC-14977"></a> ISO-IEC-14977</dt>
+<dd>
+<p>International Organization for Standardization, ISO/IEC 14977 : 1996(E): Extended Backus–Naur form. International Organization for Standardization (1996). <a href="https://www.cl.cam.ac.uk/~mgk25/iso-14977.pdf" class="bare">https://www.cl.cam.ac.uk/~mgk25/iso-14977.pdf</a></p>
 </dd>
 <dt class="hdlist1"><a id="ISO19101-1"></a> ISO19101-1</dt>
 <dd>
@@ -3709,10 +4285,19 @@ WHERE a.pid = 'ex:oxford';</code></pre>
 <div class="footnote" id="_footnotedef_2">
 <a href="#_footnoteref_2">2</a>. The OGC: <a href="https://www.ogc.org/" class="bare">https://www.ogc.org/</a>
 </div>
+<div class="footnote" id="_footnotedef_3">
+<a href="#_footnoteref_3">3</a>. See <a href="https://en.wikipedia.org/wiki/Data_modeling#Conceptual.2C_logical_and_physical_schemas">this Wikipedia Data Modeling article</a> for a good starting point to more information
+</div>
+<div class="footnote" id="_footnotedef_4">
+<a href="#_footnoteref_4">4</a>. <a href="https://en.wikipedia.org/wiki/Mereology" class="bare">https://en.wikipedia.org/wiki/Mereology</a>
+</div>
+<div class="footnote" id="_footnotedef_5">
+<a href="#_footnoteref_5">5</a>. <a href="https://linked.data.gov.au/def/roads#_short_form_template" class="bare">https://linked.data.gov.au/def/roads#_short_form_template</a>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-07-02 15:01:49 UTC
+Last updated 2023-07-03 06:23:36 UTC
 </div>
 </div>
 </body>
