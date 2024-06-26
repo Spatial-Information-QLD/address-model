@@ -680,6 +680,11 @@ This Model is under test by Queensland Government and is a candidate model for A
 <td class="tableblock halign-left valign-top"><p class="tableblock">Web Ontology Language ontology</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rdf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#" class="bare">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The RDF Concepts Vocabulary</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>rdfs</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.w3.org/2000/01/rdf-schema#" class="bare">http://www.w3.org/2000/01/rdf-schema#</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">RDF Schema ontology</p></td>
@@ -766,7 +771,7 @@ Shorncliffe QLD
 <p>Overall, this model represents addresses, certain properties for them, including address parts, geocodes and the objects to which addresses are assigned in a conceptual manner similar to the international addressing standard, <a href="#ISO19160-1">ISO19160-1</a>. However, this model is expressed in Semantic Web<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> form, rather than ISO19160-1&#8217;s UML and XML, and many aspects of the conceptual range that ISO19160 covers this model does not directly cover but instead delegates to other models which it imports, such as the representation of address and address part lifecycle information. This is done so that common things that this model does are available for use elsewhere via a series of mini-models that others may use without importing this whole model.</p>
 </div>
 <div class="paragraph">
-<p>Additionally, this model relies on several specialised sub-models to handle specific types of address parts, such as roads and geographical object naming. By doing this, those things many be modelled independently of addressing and roads and geographic object names datasets can be used with address data very easily.</p>
+<p>Additionally, this model relies on several specialised sub-models to handle specific types of address parts, such as streets and geographical object naming. By doing this, those things many be modelled independently of addressing and streets and geographic object names datasets can be used with address data very easily.</p>
 </div>
 <div class="paragraph">
 <p>This model makes no attempt to model the things to which addresses are assigned. In the example above, the address "72 Yundah St&#8230;&#8203;." is mentioned as being a form of name for, or assigned to, a cadastral parcel or a 'lot'. This model doesn&#8217;t know what those things are and leaves their modelling to other systems. This means that using this model alone, you cannot know what an address is for unless you implement an address part to describe the type of object the address is assigned to. This decision has been made since there could be great complexity in spatial object / infrastructure modelling that isn&#8217;t really core to addressing, so that&#8217;s best left to other, likely sophisticated, models.</p>
@@ -809,7 +814,7 @@ Shorncliffe QLD
 <p><a href="#_address_parts">Address Parts</a></p>
 </li>
 <li>
-<p><a href="#_road_geographical_names">Road &amp; Geographical Names</a></p>
+<p><a href="#_street_geographical_names">Street &amp; Geographical Names</a></p>
 </li>
 <li>
 <p><a href="#_address_part_typing">Address part typing</a></p>
@@ -890,7 +895,7 @@ Shorncliffe QLD
 <p>This allows for the representation, and ultimately the management, of names - text, numbers, identifiers, references - separately to the management of spatial objects.</p>
 </div>
 <div class="paragraph">
-<p>This Feature / Feature Naming separation applies to Geographical objects, Roads and Administrative Areas as well as Addresses and the first two of those three objects have models similar to this one for their names, <a href="#GN">GN</a> &amp; <a href="#ROADS">ROADS</a>.</p>
+<p>This Feature / Feature Naming separation applies to Geographical objects, Streets and Administrative Areas as well as Addresses and the first two of those three objects have models similar to this one for their names, <a href="#GN">GN</a> &amp; <a href="#ROADS">ROADS</a>.</p>
 </div>
 <div class="paragraph">
 <p>Some elements of this Feature / Feature Naming pattern, used by this and the two models mentioned above, are captured in the general-purpose <em>Compound Naming Model</em> <a href="#CNM">CNM</a> which they all inherit from.</p>
@@ -923,30 +928,30 @@ Shorncliffe QLD
 <div class="sect3">
 <h4 id="_address_parts"><a class="anchor" href="#_address_parts"></a>3.2.6. Address Parts</h4>
 <div class="paragraph">
-<p>Addresses are complex things: they are all made of multiple parts with different roles, types ordering and so on. To handle this, this model has a generic notion of a part which may be a simple thing, e.g. a postcode or a street number, but it may also be a complex thing, e.g. a road name that includes a "given" name for the road as well as some type indication.</p>
+<p>Addresses are complex things: they are all made of multiple parts with different roles, types ordering and so on. To handle this, this model has a generic notion of a part which may be a simple thing, e.g. a postcode or a street number, but it may also be a complex thing, e.g. a street name that includes a "given" name for the street as well as some type indication.</p>
 </div>
 <div class="paragraph">
-<p>This model inherits from the Compound Naming Model <a href="#CNM">CNM</a> which allows for Compound Names, such as Addresses, to link to parts which are also Compound Names which then link to other Compound Names. In this way, Addresses may be "built up" from compound names for a series of parts, such as road names, locality names and so on.</p>
+<p>This model inherits from the Compound Naming Model <a href="#CNM">CNM</a> which allows for Compound Names, such as Addresses, to link to parts which are also Compound Names which then link to other Compound Names. In this way, Addresses may be "built up" from compound names for a series of parts, such as street names, locality names and so on.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_road_geographical_names"><a class="anchor" href="#_road_geographical_names"></a>3.2.7. Road &amp; Geographical Names</h4>
+<h4 id="_street_geographical_names"><a class="anchor" href="#_street_geographical_names"></a>3.2.7. Street &amp; Geographical Names</h4>
 <div class="paragraph">
-<p>This model can be used to model all the parts of a street names - the 'given' part e.g. "Smith", a type indicator such as "Street" and perhaps a suffix, such as "South" - or it can be used to just indicate that a particular street or road is a part of an address and the name for that road is to be found in an independent road name object.</p>
+<p>This model can be used to model all the parts of a street names - the 'given' part e.g. "Smith", a type indicator such as "Street" and perhaps a suffix, such as "South" - or it can be used to just indicate that a particular street is a part of an address and the name for that street is to be found in an independent object.</p>
 </div>
 <div class="paragraph">
-<p>This second form - delegation of name - is allowed to facilitate point-of-truth road names datasets which both provide names for roads in isolation and are also used by address datasets.</p>
+<p>This second form - delegation of name - is allowed to facilitate point-of-truth datasets which both provide names for streets in isolation and are also used by address datasets.</p>
 </div>
 <div class="paragraph">
 <p>Similarly, names for geographical objects, such as mountains, lakes, certain kinds of locality etc. may also be held independently of addressing data and just referred to as a complex object part of an address.</p>
 </div>
 <div class="paragraph">
-<p>A model of roads - both naming and some physical presentation of them - has been created in parallel to this model, as has a model of Geographical Names which is a replacement for the various Placenames models found in ANZ, such as the <a href="https://linked.data.gov.au/def/placenames">FSDF Placenames Ontology</a>. these models can be used independently as well as within this model. Their persistent web addresses are:</p>
+<p>A model of streets - both naming and some physical presentation of them - has been created in parallel to this model, as has a model of Geographical Names which is a replacement for the various Placenames models found in ANZ, such as the <a href="https://linked.data.gov.au/def/placenames">FSDF Placenames Ontology</a>. These models can be used independently as well as within this model. Their persistent web addresses are:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://linked.data.gov.au/def/roads" class="bare">https://linked.data.gov.au/def/roads</a> - Roads Model</p>
+<p><a href="https://linked.data.gov.au/def/roads" class="bare">https://linked.data.gov.au/def/roads</a> - Streets, called the Roads Model</p>
 </li>
 <li>
 <p><a href="https://linked.data.gov.au/def/gn" class="bare">https://linked.data.gov.au/def/gn</a> - Geographical Names Model</p>
@@ -987,10 +992,13 @@ Shorncliffe QLD
 <p>The ability to cater for addresses reachable by watercraft was a requirement of Queensland&#8217;s project that generated this model. Water-based addressing is standardised in the Australian/New Zealand standard <a href="#AS4189:2011">AS4189:2011</a> and it requires that water-based addressing use the name of the water feature as well as a water address number, the logic for the assignment of which is feature-specific, i.e. numbers for islands and for watercourses are determined differently.</p>
 </div>
 <div class="paragraph">
-<p>This model does not supply the logic for water number generation, just as it does not supply the logic for road number assignment, however it does provide address part types for water-based addressing, see the <a href="#_address_part_types">Address Part Types</a> in the <a href="#_supporting_vocabularies">Supporting Vocabularies</a> section.</p>
+<p>This model indicates the use of a typed reference from an Address to a Water Feature object, just as Addresses reference Street or Locality objects, and then the Water Feature itself supplies the format of its name, including typing, e.g. Lord Howe <em>Island</em> or Slacks <em>Creek</em> any abbreviations or other name variants, e.g. <em>Wop pa</em> as an indigenous name variant of Great Keppel Island.</p>
 </div>
 <div class="paragraph">
-<p>This model does not provide templating or application logic to show how a water-based address should order water address parts or perhaps use water addressing parts and not road addressing parts: templating logic is exemplified in the templating annex <a href="#AnnexC">Annex C: Templating</a> and appropriate part usage logic is left to implementers.</p>
+<p>This model does not supply the logic for water number generation, just as it does not supply the logic for street number assignment, however it does provide address part types for water-based addressing, see the <a href="#_address_part_types">Address Part Types</a> in the <a href="#_supporting_vocabularies">Supporting Vocabularies</a> section.</p>
+</div>
+<div class="paragraph">
+<p>This model does not provide templating or application logic to show how a water-based address should order water address parts or perhaps use water addressing parts and not street addressing parts: templating logic is exemplified in the templating annex <a href="#AnnexC">Annex C: Templating</a> and appropriate part usage logic is left to implementers.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1404,7 +1412,7 @@ PREFIX sdo: &lt;https://schema.org/&gt;
         rdf:value 20
     ] ,
     [
-        sdo:additionalType apt:road ;
+        sdo:additionalType apt:street ;
         rdf:value &lt;https://linked.data.gov.au/dataset/qldaddr/streetLocality/QLD140492&gt; ; # "Oxford Place"
     ] ,
     [
@@ -1635,7 +1643,7 @@ ex:addr-1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope Note</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The basis for the Road Name class. This class is also used for instances of Road Name parts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The basis for the Address class. This class is also used for instances of Address Part parts</p></td>
 </tr>
 </tbody>
 </table>
@@ -1672,7 +1680,7 @@ ex:addr-1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope Note</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used to indicate the lifecycle stage of any Roads Model part. Different stage types may be necessary for different class instances such as Road Name and Road Object and may be sourced from different vocabularies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to indicate the lifecycle stage of any Address model part. Different stage types may be necessary for different class instances such as Road Name and Road Object and may be sourced from different vocabularies</p></td>
 </tr>
 </tbody>
 </table>
@@ -1709,7 +1717,7 @@ ex:addr-1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope Note</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used as the basis for the Road Object class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used as the basis for the Addressable Object class</p></td>
 </tr>
 </tbody>
 </table>
@@ -2024,7 +2032,7 @@ PREFIX sdo: &lt;https://schema.org/&gt;
 PREFIX time: &lt;http://www.w3.org/2006/time#&gt;
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 
-ex:road-name-x
+ex:street-name-x
   a addr:Address ;
   lm:hasLifeCycleStage [
     # this Stage has ceased
@@ -2093,7 +2101,7 @@ PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 PREFIX sdo: &lt;https://schema.org/&gt;
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 
-ex:road-name-x
+ex:street-name-x
     a addr:Address ;
     sdo:hasPart [
         rdf:value 4017 ;
@@ -2142,7 +2150,7 @@ ex:road-name-x
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope Note</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used to indicate a subtype for Road Name and Road Object instances</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to indicate a subtype for Address Part and Addressable Object instances</p></td>
 </tr>
 </tbody>
 </table>
@@ -2179,7 +2187,7 @@ ex:road-name-x
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope Note</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used to indicate the parts of a Road Name or of a Road Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to indicate the parts of a Address</p></td>
 </tr>
 </tbody>
 </table>
@@ -2224,7 +2232,7 @@ ex:road-name-x
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scope Note</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used to indicate the Geometry of a Feature, such as a Road Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to indicate the Geometry of a Feature, such as an Addressable Object</p></td>
 </tr>
 </tbody>
 </table>
@@ -2277,10 +2285,10 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 <div class="sect3">
 <h4 id="_address_part_types"><a class="anchor" href="#_address_part_types"></a>5.1.1. Address Part Types</h4>
 <div class="paragraph">
-<p>This vocabulary is an extended version of <a href="#ISO19160-1">ISO19160-1</a>'s <em>Address Component Type</em> vocabulary.</p>
+<p>This vocabulary is an extended version of <a href="#ISO19160-1">ISO19160-1</a>'s <em>Address Component Type</em> vocabulary and is maintained outside this model. This means it can be extended by the user community (Australian &amp; New Zealand), as needed, and without change to this model.</p>
 </div>
 <div class="paragraph">
-<p>The Persistent web identifier for this vocabulary is:</p>
+<p>The vocabulary is located online at:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2354,22 +2362,22 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>aptiso:thoroughfareName</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">thoroughfare name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Name of a thoroughfare</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Use <code>apt:road</code> to refer to a road object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use <code>apt:street</code> to refer to a street object</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Only the use of <code>aptiso:postcode</code> from this list is essentially unchanged as many literal value, such as <code>countryName</code>, have been replaced with references to data objects.</p>
+<p>These concepts have all been modified or completely replaced, except <code>postcode</code>. Replacements preference links to other complex objects, rather than simple literal data types, for example ISO19160-1&#8217;s <code>countryCode</code> which indicates a text code value for a country has been replaced with <code>apt:country</code> which indicates a country object. The use of object references rather than literal values allows for element labelling variation, such as use of abbreviated forms of a name, e.g. "USA" instead of "United Stated of America" , or different language variants, e.g. "Deutschland" instead of "Germany", where the variant information is stored as part of the object referred to.</p>
 </div>
 <div class="paragraph">
-<p>This vocab currently (March, 2024) contains the following terms:</p>
+<p>This vocab currently (June 2024) contains terms such as the following (not the complete vocabulary):</p>
 </div>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
+<col style="width: 15.3846%;">
+<col style="width: 23.0769%;">
+<col style="width: 23.0769%;">
+<col style="width: 38.4616%;">
 </colgroup>
 <thead>
 <tr>
@@ -2381,34 +2389,28 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:geographicalNameObject</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:geographicalObject</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">geographical name object</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A reference to a geographical name object</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:propertyName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">propertyName</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A name for a property</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:buildingName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">building name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name of a building</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A reference to a geographical object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This replaces several ISO19160-1 &amp; GNAF values as this reference can be used to any category of Geographical Object with the name for the object used within the address this part is part of. Geographical Object categories are assgned to the Geographical Object, not any part of this address part or the address it is part of.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:subaddressType</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sub-address type</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of the sub-address part</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Replaces GNAF&#8217;s flatTypeCode</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:subaddressNumber</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sub-address number</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of the sub-address part</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Replaces GNAF&#8217;s flatNumber</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:subaddressNumberPrefix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sub-address number prefix</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Replaces GNAF&#8217;s flatNumberPrefix</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:subaddressNumberSuffix</code></p></td>
@@ -2417,100 +2419,28 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 <td class="tableblock halign-left valign-top"><p class="tableblock">Replaces GNAF&#8217;s flatNumberSuffix</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:buildingLevelType</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">building level type</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Replaces GNAF&#8217;s levelTypeCode</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:buildingLevelNumber</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">building level number</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Replaces GNAF&#8217;s levelNumber</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:buildingLevelNumberSuffix</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">building level number suffix</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Replaces GNAF&#8217;s levelNumberSuffix</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:streetNumberFirst</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">street number first</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Replaces GNAF&#8217;s numberFirst</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:streetNumberFirstSuffix</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">street number first suffix</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Replaces GNAF&#8217;s numberFirstSuffix</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:streetNumberLast</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">street number last</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Replaces GNAF&#8217;s numberLast</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:streetNumberLastSuffix</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">street number last suffix</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Replaces GNAF&#8217;s numberLastSuffix</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:street</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">street</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A reference to a Road object</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This replaces streetLocality, streetType in GNAF</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:waterFeatureNumber</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">water feature number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A number given, based on a water feature numbering system</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:waterFeatureName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">water feature name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A name given to the water feature</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:waterFeatureType</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">water feature type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A type for the water feature</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">From a vocabulary: this part is not expected to be printed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:locality</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">locality</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A reference to a Locality object</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Replaces ISO19160-1&#8217;s localityName</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:stateOrTerritory</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">stateOrTerritory</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A reference to a state or territory object</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:waterFeature</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">water feature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A reference to a Water Feature object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">New in this model</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:indigenousCountryName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">indigenous country name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of an Indigenous country</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Could use the above, if the implementing geographical names data includes indigenous country names</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:postcode</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">postcode</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Code used for the sorting of mail</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>apt:country</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">country</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A reference to a country object</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
 </tr>
 </tbody>
 </table>
@@ -2963,8 +2893,8 @@ Shorncliffe, Queensland
 <td class="tableblock halign-left valign-top"><p class="tableblock">"72"</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Road</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">reference to the Yundah Street road object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Street</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reference to the Yundah Street, street object</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Locality</p></td>
@@ -2985,7 +2915,7 @@ Shorncliffe, Queensland
 </tbody>
 </table>
 <div class="paragraph">
-<p>Using Feature Naming recursive logic - generating names for the Road, Locality, State &amp; Country objects elsewhere, the address model sees the following:</p>
+<p>Using Feature Naming recursive logic - generating names for the Street, Locality, State &amp; Country objects elsewhere, the address model sees the following:</p>
 </div>
 <table class="tableblock frame-all grid-all stripes-even" style="width: 50%;">
 <colgroup>
@@ -3008,7 +2938,7 @@ Shorncliffe, Queensland
 <td class="tableblock halign-left valign-top"><p class="tableblock">"72"</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Road</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Street</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">"Yundah Street"</p></td>
 </tr>
 <tr>
@@ -3035,7 +2965,7 @@ Shorncliffe, Queensland
 <div class="listingblock">
 <div class="content">
 <pre>Unit {Unit}
-{StreetNumber} {Road}
+{StreetNumber} {Street}
 {Locality}, {StateOrTerritory}
 {Postcode} {Country}</pre>
 </div>
@@ -3080,8 +3010,8 @@ level_number = extended_numbers | extended_numbers ;
 level = "Level" space level_number
 unit_number = extended_numbers
 unit = "Unit" space unit_number
-road_number = extended_numbers
-road_name = extended_letters
+street_number = extended_numbers
+street_name = extended_letters
 locality = extended_letters
 state_or_territory = extended_letters
 country = extended_letters
@@ -3091,7 +3021,7 @@ suffix_spaced = space, suffix
 
 address = [building_name NEWLINE]
           [property_name NEWLINE]
-          [level space] [unit comma space] [road_number space] road_name NEWLINE
+          [level space] [unit comma space] [street_number space] street_name NEWLINE
           locality, space state_or_territory NEWLINE
           postcode space country</pre>
 </div>
@@ -3128,11 +3058,11 @@ address = [building_name NEWLINE]
 <td class="tableblock halign-left valign-top"><p class="tableblock">"Unit 4B"</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>road_number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>street_number</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">"72"</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>road_name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>street_name</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">"Yundah Street"</p></td>
 </tr>
 <tr>
@@ -3170,7 +3100,7 @@ Shorncliffe, Queensland
 <p>This Short Form Template is an example of an alternative template to the Basic Template above.</p>
 </div>
 <div class="paragraph">
-<p>This template uses most of the same layout logic as the Basic Template but it replaces <code>NEWLINE</code> between <code>building_name</code> &amp; <code>property_name</code> with <code>space</code> and makes the followin contractions:</p>
+<p>This template uses most of the same layout logic as the Basic Template but it replaces <code>NEWLINE</code> between <code>building_name</code> &amp; <code>property_name</code> with <code>space</code> and makes the following contractions:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3227,7 +3157,7 @@ Shorncliffe, Queensland
 </ul>
 </div>
 <div class="paragraph">
-<p>This template will also see out short form templates implemented for referenced objects, such as Roads so for the example above, using the Roads Model&#8217;s short form template<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>, the road name "Yundah Street" will be contracted to "Yundah St".</p>
+<p>This template will also see out short form templates implemented for referenced objects, such as Roads so for the example above, using the Roads Model&#8217;s short form template<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>, the street name "Yundah Street" will be contracted to "Yundah St".</p>
 </div>
 <div class="paragraph">
 <p>Given these changes, the example above would print out like this:</p>
@@ -3386,7 +3316,7 @@ Shorncliffe, QLD
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-04-11 01:29:24 UTC
+Last updated 2024-06-26 05:00:10 UTC
 </div>
 </div>
 </body>
