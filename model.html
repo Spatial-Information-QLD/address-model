@@ -3004,30 +3004,37 @@ extra_characters = | " " | "-" ;
 numbers = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
 extended_letters = letters | extra_characters ;
 extended_numbers = numbers | extra_characters ;
-prefix = extended_letters
-prefix_spaced = prefix, space
-level_number = extended_numbers | extended_numbers ;
+extended_letters_and_numbers = extended_letters | extended_numbers
+
+geographical_object_name = extended_letters_and_numbers
+level_number = extended_numbers ;
 level = "Level" space level_number
-unit_number = extended_numbers
-unit = "Unit" space unit_number
-street_number = extended_numbers
-street_name = extended_letters
+unit_indicator = "Unit" space
+subaddress_number_prefix = extended_letters
+subaddress_number_number = extended_numbers
+subaddress_number_suffix = extended_letters
+street_number_prefix = extended_letters
+street_number_number = extended_numbers
+street_number_suffix = extended_letters
+street_label = extended_letters_and_numbers
+
 locality = extended_letters
 state_or_territory = extended_letters
 country = extended_letters
 postcode = numbers
-suffix = extended_letters
-suffix_spaced = space, suffix
 
-address = [building_name NEWLINE]
-          [property_name NEWLINE]
-          [level space] [unit comma space] [street_number space] street_name NEWLINE
+subaddress = level unit_indicator subaddress_number_prefix subaddress_number subaddress_number_suffix
+street = street_number_prefix street_number street_number_suffix space street_label
+
+address = geographical_object_name NEWLINE
+          subaddress NEWLINE
+          street NEWLINE
           locality, space state_or_territory NEWLINE
-          postcode space country</pre>
+          postcode country</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Part value for the example above, using these EBNF tokens are:</p>
+<p>Part values for the example above, using these EBNF tokens are:</p>
 </div>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
@@ -3043,7 +3050,7 @@ address = [building_name NEWLINE]
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>building_name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"The Manse"</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>property_name</code></p></td>
@@ -3054,8 +3061,12 @@ address = [building_name NEWLINE]
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unit</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"Unit 4B"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>subaddress_number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"4"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>subaddress_number_suffix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"B"</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>street_number</code></p></td>
@@ -3088,7 +3099,9 @@ address = [building_name NEWLINE]
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>Unit 4B, 72 Yundah Street
+<pre>The Manse
+Unit 4B
+72 Yundah Street
 Shorncliffe, Queensland
 4017 Australia</pre>
 </div>
@@ -3164,7 +3177,8 @@ Shorncliffe, Queensland
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>4B/72 Yundah St
+<pre>The Manse
+4B/72 Yundah St
 Shorncliffe, QLD
 4017 Aust.</pre>
 </div>
@@ -3316,7 +3330,7 @@ Shorncliffe, QLD
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-26 05:00:10 UTC
+Last updated 2024-06-26 05:16:44 UTC
 </div>
 </div>
 </body>
