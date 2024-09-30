@@ -24,7 +24,7 @@ The vocabulary is located online at:
 
 * *https://linked.data.gov.au/def/addr-part-types*
 
-The original 8 concepts from ISO19160-1 are:
+The original 8 concepts from <<ISO19160-1, ISO19160-1>> are:
 
 |===
 | IRI | Preferred Label | Definition | Deprecation note
@@ -111,7 +111,7 @@ The Persistent web identifier for this vocabulary is:
 
 === Links to other vocabularies
 
-Multiple vocabularies derived from existing standards' codelists and databases' lookup table have been created for use with this model and proposed for adoption in vocabulary form to the Intergovernmental Committee on Surveying & Mapping (ICSM). Thos vocabularies, such as _Address Status Type_, _Level Types_ etc. can be seen online at:
+Multiple vocabularies derived from existing standards' codelists and databases' lookup table have been created for use with this model and proposed for adoption in vocabulary form to the Intergovernmental Committee on Surveying & Mapping (ICSM). Those vocabularies, such as _Address Status Type_, _Level Types_ etc. can be seen online at:
 
 * https://gsq-prez.dev.kurrawong.ai/v#qsi-vocabs[QSI's development vocab server]
 
