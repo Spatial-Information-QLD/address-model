@@ -1,3 +1,6 @@
+[NOTE]
+This model has moved to the https://www.icsm.gov.au[ICSM], see https://github.com/icsm-au/addr-model/
+
 = Spatial Information Queensland - Address Model
 
 The national for address information for Australian & New Zealand, realised in Semantic Web form.
