@@ -465,10 +465,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#Properties">4.2. Properties</a></li>
 </ul>
 </li>
-<li><a href="#_supporting_vocabularies">5. Supporting Vocabularies</a>
+<li><a href="#_vocabularies">5. Vocabularies</a>
 <ul class="sectlevel2">
-<li><a href="#_vocabularies_previewed_here">5.1. Vocabularies previewed here</a></li>
-<li><a href="#_links_to_other_vocabularies">5.2. Links to other vocabularies</a></li>
+<li><a href="#_icsm_australia_new_zealand_address_data_exchange">5.1. ICSM Australia &amp; New Zealand Address Data Exchange</a></li>
+<li><a href="#_vocabularies_previewed_here">5.2. Vocabularies previewed here</a></li>
 </ul>
 </li>
 <li><a href="#AnnexA">Annex A: Requirements</a>
@@ -540,7 +540,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Modified</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2024-09-25</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Issued</strong></p></td>
@@ -568,7 +568,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Version</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addr:1.0.1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.0.2</strong>: 2024-09 Support Vocabularies section updated to use ICSM vocabs<br>
+<strong>1.0.1</strong>: 2024-09 Geocode move to subclass of Geometry<br>
+<strong>1.0.0</strong>: 2024-06 As approved by ICSM for national use<br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code Repository</strong></p></td>
@@ -580,7 +582,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Copyright</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&copy; The State of Queensland (Department of Resources) 2020-2023</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&copy; The State of Queensland (Department of Resources) 2020-2023, Intergovernmental Committee on Surveying &amp; Mapping, 2024</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Machine-readable form (RDF)</strong></p></td>
@@ -887,7 +889,7 @@ Shorncliffe QLD
 <p>Where such vocabularies are used, they are not directly published <em>within</em> this model but externally and this model is expected to be used with them. In this way, vocabularies may be extended without extending this model and different users may implement their own vocabularies to suite their business needs, for example, perhaps not all model users allow all address part types Queensland does, such as <em>water feature number</em> so, they should use this model with a vocabulary that excludes that term.</p>
 </div>
 <div class="paragraph">
-<p>See the <a href="#_supporting_vocabularies">Supporting Vocabularies</a> section for mode information.</p>
+<p>See the <a href="#_vocabularies">Vocabularies</a> section for mode information.</p>
 </div>
 </div>
 <div class="sect3">
@@ -969,7 +971,7 @@ Shorncliffe QLD
 <p>There are various given name parts of addresses which have previously been shoved into inappropriate data fields legacy address models and systems. For example, some models have contained <em>building</em> but not <em>property</em> names, so both types have been combined into the field for the former.</p>
 </div>
 <div class="paragraph">
-<p>In this model, all address parts are just parts with a specialised type indicated with a reference to a concept within a vocabulary such as the Address Parts vocabulary (see <a href="#_supporting_vocabularies">Supporting Vocabularies</a>). Implementations <em>MUST</em> allow for this type of "soft typing" (where a data object&#8217;s type is selectable from an external list) so that no field limitations such as the above occur.</p>
+<p>In this model, all address parts are just parts with a specialised type indicated with a reference to a concept within a vocabulary such as the Address Parts vocabulary (see <a href="#_vocabularies">Vocabularies</a>). Implementations <em>MUST</em> allow for this type of "soft typing" (where a data object&#8217;s type is selectable from an external list) so that no field limitations such as the above occur.</p>
 </div>
 <div class="paragraph">
 <p>Implementers can limit the part type vocabulary of course and will have to handel all the types they allow in the vocabulary, but implementers should not "make do" with inappropriate field (part type) reuse.</p>
@@ -999,7 +1001,7 @@ Shorncliffe QLD
 <p>This model indicates the use of a typed reference from an Address to a Water Feature object, just as Addresses reference Street or Locality objects, and then the Water Feature itself supplies the format of its name, including typing, e.g. Lord Howe <em>Island</em> or Slacks <em>Creek</em> any abbreviations or other name variants, e.g. <em>Wop pa</em> as an indigenous name variant of Great Keppel Island.</p>
 </div>
 <div class="paragraph">
-<p>This model does not supply the logic for water number generation, just as it does not supply the logic for street number assignment, however it does provide address part types for water-based addressing, see the <a href="#_address_part_types">Address Part Types</a> in the <a href="#_supporting_vocabularies">Supporting Vocabularies</a> section.</p>
+<p>This model does not supply the logic for water number generation, just as it does not supply the logic for street number assignment, however it does provide address part types for water-based addressing, see the <a href="#_address_part_types">Address Part Types</a> in the <a href="#_vocabularies">Vocabularies</a> section.</p>
 </div>
 <div class="paragraph">
 <p>This model does not provide templating or application logic to show how a water-based address should order water address parts or perhaps use water addressing parts and not street addressing parts: templating logic is exemplified in the templating annex <a href="#AnnexC">Annex C: Templating</a> and appropriate part usage logic is left to implementers.</p>
@@ -1282,7 +1284,7 @@ ObjectP
 <td class="tableblock halign-left valign-top"><p class="tableblock">The technical, machine-readable, version of this model</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_supporting_vocabularies">Supporting Vocabularies</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_vocabularies">Vocabularies</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Vocabulary</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The codelist vocabularies developed for this model and links to others defined elsewhere but expected to be used by this model</p></td>
 </tr>
@@ -1436,7 +1438,7 @@ PREFIX schema: &lt;https://schema.org/&gt;
     ] ;
     addr:hasGeocode [
         a addr:Geocode ;
-        schema:roleName &lt;https://linked.data.gov.au/def/geocode-types/property-centroid&gt; ;
+        schema:additionalType &lt;https://linked.data.gov.au/def/geocode-types/property-centroid&gt; ;
         geo:asWKT "POINT(153.0846 -27.3270)"^^geo:wktLiteral ;
     ] ;
     cn:isNameFor ex-parcel:161162441 ;
@@ -1569,7 +1571,7 @@ ex:cadastral-parcel-x
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Expected Properties</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#roleName">roleName</a> - use to indicate the role that a Geocode plays in relation to an Address, <a href="#hasSerialization">hasSerialization</a> - use to indicate the position information of the Geocode</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#additionalType">additionalType</a> - use to indicate the specialised type of a Geocode, <a href="#hasSerialization">hasSerialization</a> - use to indicate the position information of the Geocode</p>
 <p class="tableblock"><code>geo:hasGeometry</code> - to indicate the position of the Geocode. A GeoSPARQL <code>Geometry</code>.</p></td>
 </tr>
 <tr>
@@ -1580,7 +1582,7 @@ ex:cadastral-parcel-x
 ex:addr-1
   a addr:Address ;
   addr:hasGeocode [
-    schema:roleName addr:buildingAccessPoint ;
+    schema:additionalType addr:buildingAccessPoint ;
     geo:asWKT "POINT (152.01 -35.03)"^^geo:wktLiteral ;  # specialised form of hasSerialization
   ] ;
   ...</code></pre>
@@ -1951,9 +1953,6 @@ ex:addr-1
 <p><a href="#hasPart">hasPart</a></p>
 </li>
 <li>
-<p><a href="#roleName">roleName</a></p>
-</li>
-<li>
 <p><a href="#hasGeometry">hasGeometry</a></p>
 </li>
 <li>
@@ -2243,44 +2242,7 @@ ex:street-name-x
 </table>
 </div>
 <div class="sect3">
-<h4 id="roleName"><a class="anchor" href="#roleName"></a>4.2.9. roleName</h4>
-<table class="tableblock frame-all grid-all stripes-even stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Property</th>
-<th class="tableblock halign-left valign-top">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">IRI</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>schema:roleName</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Preferred Label</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">role name</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Definition</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A role played, performed or filled by a person or organization</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Is Defined By</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#SDO">schema</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Scope Note</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used to indicate the role that a Geocode place in relation to an Address</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="hasGeometry"><a class="anchor" href="#hasGeometry"></a>4.2.10. hasGeometry</h4>
+<h4 id="hasGeometry"><a class="anchor" href="#hasGeometry"></a>4.2.9. hasGeometry</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2325,7 +2287,7 @@ ex:street-name-x
 </table>
 </div>
 <div class="sect3">
-<h4 id="hasSerialization"><a class="anchor" href="#hasSerialization"></a>4.2.11. hasSerialization</h4>
+<h4 id="hasSerialization"><a class="anchor" href="#hasSerialization"></a>4.2.10. hasSerialization</h4>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2376,19 +2338,76 @@ ex:street-name-x
 </div>
 </div>
 <div class="sect1">
-<h2 id="_supporting_vocabularies"><a class="anchor" href="#_supporting_vocabularies"></a>5. Supporting Vocabularies</h2>
+<h2 id="_vocabularies"><a class="anchor" href="#_vocabularies"></a>5. Vocabularies</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This model uses many vocabularies to give specialised types and roles to classes. This section previews some vocabularies that may be used and links to some others.</p>
+<p>This model requires the use of vocabularies to provide values for some predicates. Values from a Geocode role type vocabulary must be used to provide value for a Geocode&#8217;s <a href="#additionalType">additionalType</a> predicate indicating the role that a Geocode plays, and similarly, values from a lifecycle stages vocabulary must be used to provide values for a Lifecycle Stage&#8217;s <a href="#additionalType">additionalType</a> predicate, indicating specialised lifecycle stage type. <a href="#additionalType">additionalType</a> is frequently use to provide specialised typing for instances of classes.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+See the example for <a href="#Address">Address</a> where vocabulary concepts are used for both Geocode&#8217;s and Lifecycle Stage&#8217;s <a href="#additionalType">additionalType</a> predicates.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>This section is not to be taken as normative: these are example vocabularies and, even then, only part of them, to assist with model use.</p>
+<p>Wherever in the model the range value for a predicate is given as a <code>skos:Concept</code>, this indicates that a vocabulary must be used as opposed to literal (text, numerical) values. <code>skos:Concept</code> objects are presented within <code>skos:ConceptScheme</code> resources, which are controlled vocabularies.</p>
 </div>
 <div class="paragraph">
-<p>When implementing this model, it is within the remit of implementation-specific validators to mandate certain vocabularies and perhaps subsets fo concepts within those vocabularies, for use.</p>
+<p>Particular vocabularies <em>MUST</em> be used within certain contexts of use of this model. The following subsections per known use context indicate which particular vocabularies must be used, where.</p>
 </div>
 <div class="sect2">
-<h3 id="_vocabularies_previewed_here"><a class="anchor" href="#_vocabularies_previewed_here"></a>5.1. Vocabularies previewed here</h3>
+<h3 id="_icsm_australia_new_zealand_address_data_exchange"><a class="anchor" href="#_icsm_australia_new_zealand_address_data_exchange"></a>5.1. ICSM Australia &amp; New Zealand Address Data Exchange</h3>
+<div class="paragraph">
+<p>When address information formulated according to this model is exchanged within Australia &amp; New Zealand according to the <a href="https://www.icsm.gov.au">Intergovernmental Committee on Surveying &amp; Mapping</a>'s rules, the following predicates <em>MUST</em> have range values selected from the indicated vocabularies.</p>
+</div>
+<table class="tableblock frame-all grid-all stripes-even stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Model</th>
+<th class="tableblock halign-left valign-top">Class</th>
+<th class="tableblock halign-left valign-top">Predicate</th>
+<th class="tableblock halign-left valign-top">Vocabulary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Address Model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Address">Address</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#hasPart">hasPart</a>/<a href="#additionalType">additionalType</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/geocode-types">ICSM&#8217;s Address Part Types</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Address Model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Geocode">Geocode</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#additionalType">additionalType</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/geocode-types">ICSM&#8217;s Geocode Roles</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lifecycle Model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lifecycle Stage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#additionalType">additionalType</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/lifecycle-stage-types">ICSM&#8217;s Lifecycle Stage Types</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>//// get the remainder from Anne&#8217;s documents</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vocabularies_previewed_here"><a class="anchor" href="#_vocabularies_previewed_here"></a>5.2. Vocabularies previewed here</h3>
 <div class="paragraph">
 <p>Those defined here are:</p>
 </div>
@@ -2418,7 +2437,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 </table>
 </div>
 <div class="sect3">
-<h4 id="_address_part_types"><a class="anchor" href="#_address_part_types"></a>5.1.1. Address Part Types</h4>
+<h4 id="_address_part_types"><a class="anchor" href="#_address_part_types"></a>5.2.1. Address Part Types</h4>
 <div class="paragraph">
 <p>This vocabulary is an extended version of <a href="#ISO19160-1">ISO19160-1</a>'s <em>Address Component Type</em> vocabulary and is maintained outside this model. This means it can be extended by the user community (Australian &amp; New Zealand), as needed, and without change to this model.</p>
 </div>
@@ -2581,7 +2600,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 </table>
 </div>
 <div class="sect3">
-<h4 id="_address_lifecycle_stage_types"><a class="anchor" href="#_address_lifecycle_stage_types"></a>5.1.2. Address Lifecycle Stage Types</h4>
+<h4 id="_address_lifecycle_stage_types"><a class="anchor" href="#_address_lifecycle_stage_types"></a>5.2.2. Address Lifecycle Stage Types</h4>
 <div class="paragraph">
 <p>This vocabulary is currently as per <a href="#ISO19160-1">ISO19160-1</a>'s <code>AddressLifecycleStage</code> vocabulary, however it is expected that this vocabulary will be extended early in its use in Australia/NZ as it is know that jurisdictions within ANZ use other statuses</p>
 </div>
@@ -2643,7 +2662,7 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 </table>
 </div>
 <div class="sect3">
-<h4 id="_geocode_type"><a class="anchor" href="#_geocode_type"></a>5.1.3. Geocode Type</h4>
+<h4 id="_geocode_type"><a class="anchor" href="#_geocode_type"></a>5.2.3. Geocode Type</h4>
 <div class="paragraph">
 <p>This vocabulary was derived from the geocode types given as reference values in the <a href="#GNAF">GNAF</a>.</p>
 </div>
@@ -2756,22 +2775,6 @@ Hyperlinks to these vocabularies will be provided as soon as persistent identifi
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_links_to_other_vocabularies"><a class="anchor" href="#_links_to_other_vocabularies"></a>5.2. Links to other vocabularies</h3>
-<div class="paragraph">
-<p>Multiple vocabularies derived from existing standards' codelists and databases' lookup table have been created for use with this model and proposed for adoption in vocabulary form to the Intergovernmental Committee on Surveying &amp; Mapping (ICSM). Those vocabularies, such as <em>Address Status Type</em>, <em>Level Types</em> etc. can be seen online at:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://gsq-prez.dev.kurrawong.ai/v#qsi-vocabs">QSI&#8217;s development vocab server</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>See all the vocabularies with Theme: Geocoded Addressing</p>
 </div>
 </div>
 </div>
@@ -3469,7 +3472,7 @@ Shorncliffe, QLD
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-09-30 07:08:29 UTC
+Last updated 2024-10-01 00:00:50 UTC
 </div>
 </div>
 </body>
